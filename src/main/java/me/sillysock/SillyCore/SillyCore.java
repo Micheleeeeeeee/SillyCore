@@ -1,6 +1,7 @@
 package me.sillysock.SillyCore;
 
 import me.sillysock.SillyCore.Commands.Administrator.Vanish;
+import me.sillysock.SillyCore.Commands.Member.MemberListCommand;
 import me.sillysock.SillyCore.Listeners.PlayerJoinQuitEventHandlers;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
@@ -15,6 +16,7 @@ import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Member;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,8 +37,8 @@ public class SillyCore
 
     // lang.yml information
 
-    private String startupMessage;
-    private String noPermission;
+    private static String startupMessage;
+    private static String noPermission;
 
     @Override public void onEnable() {
         // Initialise static stuff
@@ -49,6 +51,7 @@ public class SillyCore
         // Registration of events/commands
         registerEvent("Join & Quit Events", new PlayerJoinQuitEventHandlers());
         registerCommand("vanish", new Vanish());
+        registerCommand("memberlist", new MemberListCommand());
 
         // Initialisation of config values
         startupMessage = getFromLangFile("startup_message");
@@ -72,7 +75,7 @@ public class SillyCore
     }
 
     private void registerEvent(final String name, final Listener listener) {
-        pluginManager.registerEvents(listener, getInstance());
+        getPluginManager().registerEvents(listener, getInstance());
         logger.log(Level.INFO, "Event " + name + " registered from " + listener);
     }
 
@@ -94,7 +97,8 @@ public class SillyCore
 
     private void fileCheck() {
 
-        if (langFile.exists() && permissionsFile.exists()) return;
+        if (langFile.exists()) return;
+        if (permissionsFile.exists()) return;
 
         getInstance().saveResource("lang.yml", false);
         getInstance().saveResource("permissions.yml", false);
@@ -134,5 +138,17 @@ public class SillyCore
 
     public static SillyCore getInstance() {
         return instance;
+    }
+
+    public static PluginManager getPluginManager() {
+        return pluginManager;
+    }
+
+    public static String getStartupMessage() {
+        return startupMessage;
+    }
+
+    public static String getNoPermission() {
+        return noPermission;
     }
 }

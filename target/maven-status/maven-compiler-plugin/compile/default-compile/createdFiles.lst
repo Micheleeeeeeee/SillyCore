@@ -1,3 +1,4 @@
 me/sillysock/SillyCore/Listeners/PlayerJoinQuitEventHandlers.class
 me/sillysock/SillyCore/Commands/Administrator/Vanish.class
+me/sillysock/SillyCore/Commands/Member/MemberListCommand.class
 me/sillysock/SillyCore/SillyCore.class

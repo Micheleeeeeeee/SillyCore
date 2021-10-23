@@ -11,3 +11,5 @@ commands:
     description: Staff GUI.
   vanish:
     description: dude.
+  memberlist:
+    description: Lists all players online.
