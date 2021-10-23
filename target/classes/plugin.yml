@@ -1,0 +1,13 @@
+main: me.sillysock.SillyCore.SillyCore
+version: 1.0
+api-version: 1.17
+name: SillyCore
+author: Sillysockk
+
+commands:
+  dev:
+    description: Developer Commands.
+  staff:
+    description: Staff GUI.
+  vanish:
+    description: dude.
