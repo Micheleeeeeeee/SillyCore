@@ -26,7 +26,7 @@ public class MemberListCommand implements CommandExecutor {
 
         p = (Player) sender;
 
-
+        createMemberList(p);
 
         return false;
     }
