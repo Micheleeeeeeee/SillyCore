@@ -1,0 +1,11 @@
+# Nothing here... yet
+
+nickname_bad_words:
+  # Remove these and make your own bad word list.
+  # - 'this'
+  # - 'is'
+  # - 'the'
+  # - 'format'
+  # - 'for'
+  # - 'bad'
+  # - 'words'

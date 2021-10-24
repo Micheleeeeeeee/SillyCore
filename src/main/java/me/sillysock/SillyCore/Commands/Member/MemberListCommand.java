@@ -11,7 +11,8 @@ import org.bukkit.inventory.Inventory;
 
 import java.util.logging.Level;
 
-public class MemberListCommand implements CommandExecutor {
+public class MemberListCommand
+        implements CommandExecutor {
 
     Player p;
     StringBuilder memberList;
@@ -37,9 +38,12 @@ public class MemberListCommand implements CommandExecutor {
         memberList.append(ChatColor.GRAY + "Online members: " + ChatColor.RESET);
 
         for (Player pl : Bukkit.getOnlinePlayers()) {
+            if (memberList.length() + 1 == Bukkit.getOnlinePlayers().size()) {
+                memberList.append(pl.getName());
+            }
             memberList.append(pl.getName() + ", ");
         }
-        memberList.append((Bukkit.getOnlinePlayers().size() > 1 ? "\nThere are currently " + Bukkit.getOnlinePlayers().size() + " players online" : "There is currently 1 player online."));
+        memberList.append(ChatColor.GRAY + (Bukkit.getOnlinePlayers().size() > 1 ? "\nThere are currently " + Bukkit.getOnlinePlayers().size() + " players online" : "\nThere is currently 1 player online."));
 
         p.sendMessage(memberList.toString());
     }

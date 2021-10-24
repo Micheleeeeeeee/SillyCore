@@ -39,6 +39,9 @@ public class SillyCore
 
     private static String startupMessage;
     private static String noPermission;
+    private static String nicknameInsufficientArguments;
+    private static String joinMessage;
+    private static String quitMessage;
 
     @Override public void onEnable() {
         // Initialise static stuff
@@ -56,6 +59,8 @@ public class SillyCore
         // Initialisation of config values
         startupMessage = getFromLangFile("startup_message");
         noPermission = ChatColor.translateAlternateColorCodes('&', getFromLangFile("no_permission"));
+        nicknameInsufficientArguments = ChatColor.translateAlternateColorCodes('&', getFromLangFile("nick_insufficient_arguments"));
+        joinQuitMessages();
 
         // Log...
         logger.log(Level.INFO, startupMessage);
@@ -91,10 +96,6 @@ public class SillyCore
         langYml = YamlConfiguration.loadConfiguration(langFile);
     }
 
-    public static Logger getLog() {
-        return logger;
-    }
-
     private void fileCheck() {
 
         if (langFile.exists()) return;
@@ -102,6 +103,27 @@ public class SillyCore
 
         getInstance().saveResource("lang.yml", false);
         getInstance().saveResource("permissions.yml", false);
+    }
+
+    private void joinQuitMessages() {
+        joinMessage = ChatColor.translateAlternateColorCodes('&', getFromLangFile("join_message"));
+        quitMessage = ChatColor.translateAlternateColorCodes('&', getFromLangFile("quit_message"));
+    }
+
+    public static String getNicknameInsufficientArguments() {
+        return nicknameInsufficientArguments;
+    }
+
+    public static String getJoinMessage() {
+        return joinMessage;
+    }
+
+    public static String getQuitMessage() {
+        return quitMessage;
+    }
+
+    public static Logger getLog() {
+        return logger;
     }
 
     public static String getFromConfig(final String path) {
