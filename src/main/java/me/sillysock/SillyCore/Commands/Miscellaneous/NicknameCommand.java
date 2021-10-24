@@ -1,6 +1,7 @@
 package me.sillysock.SillyCore.Commands.Miscellaneous;
 
 import me.sillysock.SillyCore.SillyCore;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,6 +15,7 @@ public class NicknameCommand
 
     Player p;
     String name;
+    String nickname;
     private static HashMap<Player, String> nicknamedPlayers = new HashMap<>();
 
     @Override
@@ -39,6 +41,10 @@ public class NicknameCommand
                 p.setPlayerListName(name);
             }
         }
+
+        nickname = args[0];
+        nicknamedPlayers.put(p, nickname);
+        p.sendMessage(ChatColor.GRAY + "Your nickname has been changed to " + ChatColor.YELLOW + nickname + ChatColor.RESET);
 
         return false;
     }

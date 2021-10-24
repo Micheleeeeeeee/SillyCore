@@ -9,3 +9,4 @@ quit_message: '&7[&c-&7] {player_name}'
 
 # Commands
 nick_insufficient_arguments: '&cUsage: /nick {reset | player} nickname\nUsage: /nick {reset | nickname}'
+player_nicked: '&aYour nickname has been changed to &6{nickname}&a.'
