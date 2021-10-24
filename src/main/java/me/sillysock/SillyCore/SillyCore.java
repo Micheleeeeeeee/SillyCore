@@ -110,6 +110,50 @@ public class SillyCore
         quitMessage = ChatColor.translateAlternateColorCodes('&', getFromLangFile("quit_message"));
     }
 
+    public static void setInstance(SillyCore instance) {
+        SillyCore.instance = instance;
+    }
+
+    public static void setPermissionsYml(FileConfiguration permissionsYml) {
+        SillyCore.permissionsYml = permissionsYml;
+    }
+
+    public static void setLangYml(FileConfiguration langYml) {
+        SillyCore.langYml = langYml;
+    }
+
+    public static void setConfig(FileConfiguration config) {
+        SillyCore.config = config;
+    }
+
+    public static void setLangFile(File langFile) {
+        SillyCore.langFile = langFile;
+    }
+
+    public static void setPermissionsFile(File permissionsFile) {
+        SillyCore.permissionsFile = permissionsFile;
+    }
+
+    public static void setStartupMessage(String startupMessage) {
+        SillyCore.startupMessage = startupMessage;
+    }
+
+    public static void setNoPermission(String noPermission) {
+        SillyCore.noPermission = noPermission;
+    }
+
+    public static void setNicknameInsufficientArguments(String nicknameInsufficientArguments) {
+        SillyCore.nicknameInsufficientArguments = nicknameInsufficientArguments;
+    }
+
+    public static void setJoinMessage(String joinMessage) {
+        SillyCore.joinMessage = joinMessage;
+    }
+
+    public static void setQuitMessage(String quitMessage) {
+        SillyCore.quitMessage = quitMessage;
+    }
+
     public static String getNicknameInsufficientArguments() {
         return nicknameInsufficientArguments;
     }

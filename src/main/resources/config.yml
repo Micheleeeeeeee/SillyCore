@@ -1,4 +1,5 @@
-# Nothing here... yet
+storage: 'yml' # MySQL | MongoDB will come after release.
+               # This currently does nothing, and you are free to change it.
 
 nickname_bad_words:
   # Remove these and make your own bad word list.
@@ -9,3 +10,5 @@ nickname_bad_words:
   # - 'for'
   # - 'bad'
   # - 'words'
+
+op_command_enabled: true # false for not enabled!
