@@ -1,2 +1,17 @@
+
+offline_or_doesnt_exist: '&cThe target player {target_name} does not exist.'
 startup_message: 'The plugin successfully started up.'
 no_permission: '&cYou do not have permission to execute this command.'
+
+# Placeholder: {player_name} will replace itself with the players name.
+join_message: '&7[&a+&7] {player_name}'
+quit_message: '&7[&c-&7] {player_name}'
+
+# Commands
+nick_insufficient_arguments: '&cUsage: /nick {reset | player} nickname\nUsage: /nick {reset | nickname}'
+realname_insufficient_arguments: '&cUsage: /realname [player]'
+not_nicked: '&cThe target player is not nicked!'
+realname: "{nickname}'s real name is: {realname}"
+operator_command_disabled: '&c&lERROR: &cThis command has been disabled.'
+
+player_nicked: '&aYour nickname has been changed to &6{nickname}&a.'

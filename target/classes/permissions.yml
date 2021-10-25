@@ -1,2 +1,4 @@
 ban: 'sillycore.admin.ban'
 vanish: 'sillycore.mod.vanish'
+bypass_nickname_filter: 'sillycore.mod.nickname.bypass'
+bypass_chat_filter: 'sillycore.member.chat.bypass'

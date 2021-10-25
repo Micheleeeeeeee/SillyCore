@@ -13,3 +13,7 @@ commands:
     description: dude.
   memberlist:
     description: Lists all players online.
+  nick:
+    description: test
+  realname:
+    description: balls

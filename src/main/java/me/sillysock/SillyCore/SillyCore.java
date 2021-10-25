@@ -1,22 +1,22 @@
 package me.sillysock.SillyCore;
 
+import me.sillysock.SillyCore.API.Config;
 import me.sillysock.SillyCore.Commands.Administrator.Vanish;
 import me.sillysock.SillyCore.Commands.Member.MemberListCommand;
+import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
+import me.sillysock.SillyCore.Commands.Miscellaneous.RealnameCommand;
+import me.sillysock.SillyCore.Listeners.CancelOpCommand;
 import me.sillysock.SillyCore.Listeners.PlayerJoinQuitEventHandlers;
+import me.sillysock.SillyCore.Managers.NickManager;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.yaml.snakeyaml.Yaml;
 
 import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Member;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -26,6 +26,7 @@ public class SillyCore
     private static Logger logger;
     private static PluginManager pluginManager;
     private static SillyCore instance;
+    private static NickManager nicknameManager;
 
     // BEGIN CONFIGURATION FILES
 
@@ -38,28 +39,31 @@ public class SillyCore
     // lang.yml information
 
     private static String startupMessage;
-    private static String noPermission;
-    private static String nicknameInsufficientArguments;
     private static String joinMessage;
     private static String quitMessage;
+    private static String noPermission;
+    private static String notNicked;
+    private static String opCommandDisabled;
+    private static String nicknameInsufficientArguments;
+    private static String realnameInsufficientArguments;
+    private static String doesNotExistOrIsOffline;
+
+    private static boolean opCommandEnabled;
 
     @Override public void onEnable() {
         // Initialise static stuff
         logger = getLogger();
         pluginManager = getServer().getPluginManager();
         instance = this;
+        nicknameManager = new NickManager();
 
         fileInitialisations();
 
         // Registration of events/commands
-        registerEvent("Join & Quit Events", new PlayerJoinQuitEventHandlers());
-        registerCommand("vanish", new Vanish());
-        registerCommand("memberlist", new MemberListCommand());
+        registerEventsAndCommands();
 
         // Initialisation of config values
-        startupMessage = getFromLangFile("startup_message");
-        noPermission = ChatColor.translateAlternateColorCodes('&', getFromLangFile("no_permission"));
-        nicknameInsufficientArguments = ChatColor.translateAlternateColorCodes('&', getFromLangFile("nick_insufficient_arguments"));
+        refreshConfigValues();
         joinQuitMessages();
 
         // Log...
@@ -70,6 +74,8 @@ public class SillyCore
         logger = null;
         pluginManager = null;
         instance = null;
+
+
 
         System.out.printf("The plugin has been disabled.\n");
     }
@@ -105,9 +111,23 @@ public class SillyCore
         getInstance().saveResource("permissions.yml", false);
     }
 
+    private void registerEventsAndCommands() {
+        // Registration of events/commands
+        registerEvent("Join & Quit Events", new PlayerJoinQuitEventHandlers());
+        registerEvent("Cancel OP Command", new CancelOpCommand());
+        registerCommand("vanish", new Vanish());
+        registerCommand("memberlist", new MemberListCommand());
+        registerCommand("nick", new NicknameCommand());
+        registerCommand("realname", new RealnameCommand());
+    }
+
     private void joinQuitMessages() {
         joinMessage = ChatColor.translateAlternateColorCodes('&', getFromLangFile("join_message"));
         quitMessage = ChatColor.translateAlternateColorCodes('&', getFromLangFile("quit_message"));
+    }
+
+    public static void refreshConfigValues() {
+        Config.setJoinMessage();
     }
 
     public static void setInstance(SillyCore instance) {
@@ -178,6 +198,8 @@ public class SillyCore
         return langYml.getString(path);
     }
 
+    public static boolean getBooleanFromConfig(final String path) { return config.getBoolean(path); }
+
     public static String getFromPermissionsFile(final String path) {
         return permissionsYml.getString(path);
     }
@@ -210,11 +232,55 @@ public class SillyCore
         return pluginManager;
     }
 
+    public static String getRealnameInsufficientArguments() {
+        return realnameInsufficientArguments;
+    }
+
     public static String getStartupMessage() {
         return startupMessage;
     }
 
     public static String getNoPermission() {
         return noPermission;
+    }
+
+    public static void setRealnameInsufficientArguments(String realnameInsufficientArguments) {
+        SillyCore.realnameInsufficientArguments = realnameInsufficientArguments;
+    }
+
+    public static String getDoesNotExistOrIsOffline() {
+        return doesNotExistOrIsOffline;
+    }
+
+    public static void setDoesNotExistOrIsOffline(String doesNotExistOrIsOffline) {
+        SillyCore.doesNotExistOrIsOffline = doesNotExistOrIsOffline;
+    }
+
+    public static boolean isOpCommandEnabled() {
+        return opCommandEnabled;
+    }
+
+    public static void setOpCommandEnabled(boolean opCommandEnabled) {
+        SillyCore.opCommandEnabled = opCommandEnabled;
+    }
+
+    public static String getOpCommandDisabled() {
+        return opCommandDisabled;
+    }
+
+    public static void setOpCommandDisabled(String opCommandDisabled) {
+        SillyCore.opCommandDisabled = opCommandDisabled;
+    }
+
+    public static NickManager getNicknameManager() {
+        return nicknameManager;
+    }
+
+    public static String getNotNicked() {
+        return notNicked;
+    }
+
+    public static void setNotNicked(String notNicked) {
+        SillyCore.notNicked = notNicked;
     }
 }
