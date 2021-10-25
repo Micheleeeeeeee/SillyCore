@@ -1,5 +1,6 @@
 package me.sillysock.SillyCore.Commands.Miscellaneous;
 
+import me.sillysock.SillyCore.API.Config;
 import me.sillysock.SillyCore.Managers.NickManager;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
@@ -29,12 +30,12 @@ public class RealnameCommand
 
         p = (Player) sender;
         if (args.length == 0) {
-            p.sendMessage(SillyCore.getRealnameInsufficientArguments());
+            p.sendMessage(Config.getRealnameInsufficientArguments());
             return true;
         }
 
         if (nickedPlayers.get(args[0]) == null) {
-            p.sendMessage(SillyCore.getNotNicked());
+            p.sendMessage(Config.getNotNicked());
             return true;
         }
 

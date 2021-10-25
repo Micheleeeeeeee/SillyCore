@@ -1,5 +1,6 @@
 package me.sillysock.SillyCore.Managers;
 
+import me.sillysock.SillyCore.API.Config;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -23,7 +24,7 @@ public class ServerManager
 
         p = (Player) sender;
         if (!p.hasPermission("sillycore.admin.manage.reloadconfig")) {
-            p.sendMessage(SillyCore.getNoPermission());
+            p.sendMessage(Config.getNoPermission());
             return true;
         }
 
@@ -32,10 +33,11 @@ public class ServerManager
             return true;
         }
 
-        if (args[0].equalsIgnoreCase("reloadconfig")) {
-            p.sendMessage("Reloading config values...");
-            SillyCore.refreshConfigValues();
-            p.sendMessage("Config values refreshed.");
+        if (args[0].equalsIgnoreCase("rlconfig")) {
+            Config.setConfigValues();
+            p.sendMessage("Testing new config values.");
+            p.sendMessage("join: " + Config.getJoinMessage());
+            p.sendMessage("If this is not correct from your lang.yml please contact me on my resource.");
 
             return true;
         }

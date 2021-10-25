@@ -1,8 +1,10 @@
-me/sillysock/SillyCore/Commands/Miscellaneous/NicknameCommand.class
 me/sillysock/SillyCore/Listeners/PlayerJoinQuitEventHandlers.class
-me/sillysock/SillyCore/Commands/Administrator/Vanish.class
 me/sillysock/SillyCore/Commands/Miscellaneous/RealnameCommand.class
+me/sillysock/SillyCore/Commands/Member/MemberListCommand.class
+me/sillysock/SillyCore/Managers/ServerManager.class
+me/sillysock/SillyCore/Commands/Miscellaneous/NicknameCommand.class
+me/sillysock/SillyCore/Commands/Administrator/Vanish.class
 me/sillysock/SillyCore/Listeners/CancelOpCommand.class
 me/sillysock/SillyCore/Managers/NickManager.class
-me/sillysock/SillyCore/Commands/Member/MemberListCommand.class
 me/sillysock/SillyCore/SillyCore.class
+me/sillysock/SillyCore/API/Config.class

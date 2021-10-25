@@ -10,6 +10,8 @@ quit_message: '&7[&c-&7] {player_name}'
 # Commands
 nick_insufficient_arguments: '&cUsage: /nick {reset | player} nickname\nUsage: /nick {reset | nickname}'
 realname_insufficient_arguments: '&cUsage: /realname [player]'
+
+
 not_nicked: '&cThe target player is not nicked!'
 realname: "{nickname}'s real name is: {realname}"
 operator_command_disabled: '&c&lERROR: &cThis command has been disabled.'

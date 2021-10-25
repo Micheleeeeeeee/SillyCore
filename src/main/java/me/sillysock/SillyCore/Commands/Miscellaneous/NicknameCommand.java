@@ -1,5 +1,6 @@
 package me.sillysock.SillyCore.Commands.Miscellaneous;
 
+import me.sillysock.SillyCore.API.Config;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -31,7 +32,7 @@ public class NicknameCommand
         name = p.getName();
 
         if (args.length < 1) {
-            p.sendMessage(SillyCore.getNicknameInsufficientArguments());
+            p.sendMessage(Config.getNicknameInsufficientArguments());
             return true;
         }
 

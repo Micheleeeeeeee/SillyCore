@@ -17,3 +17,5 @@ commands:
     description: test
   realname:
     description: balls
+  server:
+    description: Manage the server.

@@ -1,5 +1,6 @@
 package me.sillysock.SillyCore.Listeners;
 
+import me.sillysock.SillyCore.API.Config;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,8 +18,8 @@ public class CancelOpCommand
     public void CancelOpCommand(final PlayerCommandPreprocessEvent e) {
         p = e.getPlayer();
 
-        if (e.getMessage().toLowerCase().startsWith("/op") && !SillyCore.isOpCommandEnabled())  {
-            p.sendMessage(SillyCore.getOpCommandDisabled());
+        if (e.getMessage().toLowerCase().startsWith("/op") && !Config.isOpCommandEnabled())  {
+            p.sendMessage(Config.getOpCommandDisabled());
             e.setCancelled(true);
         }
     }

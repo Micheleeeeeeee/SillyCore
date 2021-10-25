@@ -2,16 +2,19 @@ package me.sillysock.SillyCore.API;
 
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
 public class Config {
 
-    private static final FileConfiguration config = SillyCore.getConfiguration();
-    private static final FileConfiguration langYml = SillyCore.getLangYml();
-    private static final FileConfiguration permissionsYml = SillyCore.getPermissionsYml();
-    private static final File langFile = SillyCore.getLangFile();
-    private static final File permissionsFile = SillyCore.getPermissionsFile();
+    private static FileConfiguration config;
+    private static FileConfiguration langYml;
+    private static FileConfiguration permissionsYml;
+    private static File langFile;
+    private static File permissionsFile;
+
+    private static File dataFolder;
 
     private static String startupMessage;
     private static String joinMessage;
@@ -23,9 +26,48 @@ public class Config {
     private static String realnameInsufficientArguments;
     private static String doesNotExistOrIsOffline;
 
+    private static boolean isOpCommandDisabled;
+
+    public static void fileCheck() {
+        if (langFile.exists()) return;
+        if (permissionsFile.exists()) return;
+
+        SillyCore.getInstance().saveResource("lang.yml", false);
+        SillyCore.getInstance().saveResource("permissions.yml", false);
+    }
+
     public static void setConfigValues() {
-        startupMessage = langYml.getString("startup_message");
-        joinMessage = langYml.getString("join_message");
+
+        config = SillyCore.getInstance().getConfig();
+        dataFolder = SillyCore.getInstance().getDataFolder();
+
+        langFile = new File(dataFolder, "lang.yml");
+        permissionsFile = new File(dataFolder, "permissions.yml");
+
+        langYml = YamlConfiguration.loadConfiguration(langFile);
+        permissionsYml = YamlConfiguration.loadConfiguration(permissionsFile);
+
+        fileCheck();
+
+        setStartupMessage(getStringFromLang("startup_message"));
+        setJoinMessage(getStringFromLang("join_message"));
+        setNoPermission(getStringFromLang("no_permission"));
+        setNotNicked(getStringFromLang("not_nicked"));
+    }
+    
+    public static String getStringFromLang(final String path) {
+        String out = langYml.getString(path);
+        return out != null ? out : "Invalid Path";
+    }
+
+    public static String getStringFromConfig(final String path) {
+        String out = config.getString(path);
+        return out != null ? out : "Invalid Path";
+    }
+
+    public static String getPermission(final String path) {
+        String out = permissionsYml.getString(path);
+        return out != null ? out : "Invalid Path";
     }
 
     public static String getStartupMessage() {
@@ -114,5 +156,13 @@ public class Config {
 
     public File getPermissionsFile() {
         return permissionsFile;
+    }
+
+    public static boolean isOpCommandEnabled() {
+        return isOpCommandDisabled;
+    }
+
+    public static void setIsOpCommandDisabled(boolean isOpCommandDisabled) {
+        Config.isOpCommandDisabled = isOpCommandDisabled;
     }
 }

@@ -1,6 +1,6 @@
 main: me.sillysock.SillyCore.SillyCore
 version: 1.0
-api-version: 1.16
+api-version: 1.17
 name: SillyCore
 author: Sillysockk
 
@@ -17,3 +17,5 @@ commands:
     description: test
   realname:
     description: balls
+  server:
+    description: Manage the server.
