@@ -2,6 +2,7 @@ package me.sillysock.SillyCore.API.Configuration;
 
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 
@@ -39,7 +40,25 @@ public class Permissions {
         permissionsFile = new File(dataFolder, "permissions.yml");
         if (!permissionsFile.exists()) SillyCore.getInstance().saveResource("permissions.yml", false);
 
+        permissions = YamlConfiguration.loadConfiguration(permissionsFile);
 
+        setBan(get("ban"));
+        setKick(get("kick"));
+        setBroadcast(get("broadcast"));
+        setMute(get("mute"));
+        setNick(get("nickname"));
+        setNickOthers(get("nick_others"));
+        setVanish("vanish");
+        setVanishOthers("vanish_others");
+        setChatFilterBypass("bypass_filter");
+        setReloadConfig("reload_config");
+        setOp("operator");
+        setNickFilterBypass("nick_filter_bypass");
+
+    }
+    
+    private static String get(final String path) {
+        return get(path);
     }
 
     public static FileConfiguration getPermissions() {

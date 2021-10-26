@@ -14,7 +14,6 @@ bypass_filter: 'sillycore.chat.bypass'
 # Punishments
 
 mute: 'sillycore.mod.mute'
-mute_others: 'sillycore.mod.mute_other'
 kick: 'sillycore.mod.kick'
 warn: 'sillycore.mod.warn'
 ban: 'sillycore.mod.ban'
