@@ -2,6 +2,8 @@ package me.sillysock.SillyCore;
 
 import me.sillysock.SillyCore.API.Config;
 import me.sillysock.SillyCore.Commands.Administrator.Vanish;
+import me.sillysock.SillyCore.Commands.Member.FeedCommand;
+import me.sillysock.SillyCore.Commands.Member.HealCommand;
 import me.sillysock.SillyCore.Commands.Member.MemberListCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.RealnameCommand;
@@ -28,6 +30,7 @@ public final class SillyCore
     private static PluginManager pluginManager;
     private static SillyCore instance;
     private static NickManager nicknameManager;
+    private static File dataFolder;
 
     @Override public void onEnable() {
         // Initialise static stuff
@@ -35,6 +38,7 @@ public final class SillyCore
         pluginManager = getServer().getPluginManager();
         instance = this;
         nicknameManager = new NickManager();
+        dataFolder = getDataFolder();
 
         // Registration of events/commands
         registerEventsAndCommands();
@@ -75,6 +79,8 @@ public final class SillyCore
         registerCommand("nick", new NicknameCommand());
         registerCommand("realname", new RealnameCommand());
         registerCommand("server", new ServerManager());
+        registerCommand("feed", new FeedCommand());
+        registerCommand("heal", new HealCommand());
     }
 
     public static void setInstance(SillyCore instance) {
@@ -95,5 +101,9 @@ public final class SillyCore
 
     public static NickManager getNicknameManager() {
         return nicknameManager;
+    }
+
+    public static File getSillyDataFolder() {
+        return dataFolder;
     }
 }
