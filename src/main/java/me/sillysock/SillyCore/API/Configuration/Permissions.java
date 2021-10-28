@@ -40,7 +40,7 @@ public class Permissions {
         permissionsFile = new File(dataFolder, "permissions.yml");
         if (!permissionsFile.exists()) SillyCore.getInstance().saveResource("permissions.yml", false);
 
-        permissions = YamlConfiguration.loadConfiguration(permissionsFile);
+        permissions = YamlConfiguration.loadConfiguration(permissionsFile); // Load permissions.yml for usage
 
         setBan(get("ban"));
         setKick(get("kick"));
@@ -58,7 +58,7 @@ public class Permissions {
     }
     
     private static String get(final String path) {
-        return get(path);
+        return permissions.getString(path);
     }
 
     public static FileConfiguration getPermissions() {

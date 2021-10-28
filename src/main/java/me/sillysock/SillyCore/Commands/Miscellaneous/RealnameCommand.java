@@ -1,10 +1,7 @@
 package me.sillysock.SillyCore.Commands.Miscellaneous;
 
-import me.sillysock.SillyCore.API.Config;
-import me.sillysock.SillyCore.Managers.NickManager;
+import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.SillyCore;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -30,16 +27,18 @@ public class RealnameCommand
 
         p = (Player) sender;
         if (args.length == 0) {
-            p.sendMessage(Config.getRealnameInsufficientArguments());
+            p.sendMessage(Lang.getNicknameInsufficientArguments());
             return true;
         }
 
-        if (nickedPlayers.get(args[0]) == null) {
-            p.sendMessage(Config.getNotNicked());
+        target = nickedPlayers.get(args[0]);
+
+        if (target == null) {
+            p.sendMessage(Lang.getNotNicked());
             return true;
         }
 
-        p.sendMessage(ChatColor.GRAY + args[0] + "'s real name is " + ChatColor.YELLOW + nickedPlayers.get(args[0]).getName());
+        p.sendMessage(Lang.formatRealnameSuccess(target.getName(), target.getDisplayName()));
 
         return false;
     }

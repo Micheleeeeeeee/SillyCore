@@ -18,6 +18,10 @@ kick: 'sillycore.mod.kick'
 warn: 'sillycore.mod.warn'
 ban: 'sillycore.mod.ban'
 
+blacklist: 'sillycore.administrator.blacklist'
+# WARNING: THE BLACKLIST COMMAND DOES NOT HAVE AN UNBLACKLIST COMMAND.
+# YOU CAN ONLY REMOVE SOMEONE MANUALLY. BE SURE OF WHAT YOU ARE DOING.
+
 # Server Management
 
 reload_config: 'sillycore.server.reload_config'

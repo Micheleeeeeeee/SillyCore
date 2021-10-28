@@ -2,6 +2,8 @@
 # lang.yml - Customize the messages SillyCore sends to the users.
 # If there are placeholders, it is highly recommended using them.
 
+prefix: '&aSillyCore'
+
 target_offline: '&cThe target player {target_name} does not exist.'
 startup: 'The plugin successfully started up.'
 no_permission: '&c&lERROR: &cYou do not have permission to execute this command.'
@@ -13,12 +15,12 @@ quit: '&7[&c-&7] {player_name}'
 # Insufficient Arguments
 
 nick_invalidarg: '&cUsage: /nick {reset | player} nickname\nUsage: /nick {reset | nickname}'
-realname_invaliarg: '&cUsage: /realname [player]'
+realname_invalidarg: '&cUsage: /realname [player]'
 
 # Commands
 # Regular output
 
-realname: "{nickname}'s real name is: {realname}"
+realname: "{nickname}'s real name is: {realname}" # Example: "Mike's real name is Mike1324"
 player_nicked: '&aYour nickname has been changed to &6{nickname}&a.'
 
 # Commands

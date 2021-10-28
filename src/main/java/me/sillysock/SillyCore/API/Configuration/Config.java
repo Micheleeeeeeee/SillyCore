@@ -16,9 +16,12 @@ public class Config {
     public static void setValues() {
         config = SillyCore.getInstance().getConfig();
 
-        nicknameBadWords = config.getStringList("nickname_bad_words");
+        setNicknameBadWords(config.getStringList("nickname_bad_words"));
         storage = config.getString("storage");
         opDisabled = config.getBoolean("disable_op");
+
+        Lang.setValues();
+        Permissions.setValues();
     }
 
     public static List<String> getNicknameBadWords() {

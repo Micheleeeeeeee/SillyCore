@@ -1,9 +1,7 @@
 package me.sillysock.SillyCore.Listeners;
 
-import me.sillysock.SillyCore.SillyCore;
-import me.sillysock.SillyCore.API.Config;
+import me.sillysock.SillyCore.API.Configuration.Lang;
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -19,7 +17,7 @@ public class PlayerJoinQuitEventHandlers
 
     @EventHandler
     public void onPlayerJoin(final PlayerJoinEvent e) {
-        joinMessage = Config.getJoinMessage();
+        joinMessage = Lang.getJoinMessage();
 
         p = e.getPlayer();
         e.setJoinMessage(null);
@@ -29,7 +27,7 @@ public class PlayerJoinQuitEventHandlers
 
     @EventHandler
     public void onPlayerQuit(final PlayerQuitEvent e) {
-        quitMessage = Config.getQuitMessage();
+        quitMessage = Lang.getQuitMessage();
 
         p = e.getPlayer();
         e.setQuitMessage(null);

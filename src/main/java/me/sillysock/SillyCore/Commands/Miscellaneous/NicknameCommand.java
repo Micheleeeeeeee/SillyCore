@@ -1,9 +1,7 @@
 package me.sillysock.SillyCore.Commands.Miscellaneous;
 
-import me.sillysock.SillyCore.API.Config;
+import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.SillyCore;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,24 +13,20 @@ import java.util.logging.Level;
 public class NicknameCommand
         implements CommandExecutor {
 
-    Player p;
-    String name;
-    String nickname;
     HashMap<String, Player> nicknamedPlayers = SillyCore.getNicknameManager().getNicknamedPlayers();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        if (!(sender instanceof Player)) {
+        if (!(sender instanceof Player p)) {
             SillyCore.getLog().log(Level.SEVERE, "Only players may execute this command.");
             return true;
         }
 
-        p = (Player) sender;
-        name = p.getName();
+        String name = p.getName();
 
         if (args.length < 1) {
-            p.sendMessage(Config.getNicknameInsufficientArguments());
+            p.sendMessage(Lang.getNicknameInsufficientArguments());
             return true;
         }
 
@@ -41,14 +35,16 @@ public class NicknameCommand
                 nicknamedPlayers.remove(p);
                 p.setDisplayName(name);
                 p.setPlayerListName(name);
+
+                p.sendMessage("");
             }
         }
 
-        nickname = args[0];
+        String nickname = args[0];
         nicknamedPlayers.put(nickname, p);
         p.setDisplayName(nickname);
         p.setPlayerListName(nickname);
-        p.sendMessage(ChatColor.GRAY + "Your nickname has been changed to " + ChatColor.YELLOW + nickname + ChatColor.RESET);
+        p.sendMessage(Lang.formatNickSuccess(nickname));
 
         return false;
     }

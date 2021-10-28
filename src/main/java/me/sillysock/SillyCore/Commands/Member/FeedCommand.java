@@ -1,6 +1,6 @@
 package me.sillysock.SillyCore.Commands.Member;
 
-import me.sillysock.SillyCore.API.Config;
+import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -27,7 +27,7 @@ public class FeedCommand
 
         p = (Player) sender;
         if (!p.hasPermission("sillycore.feed.todo")) {
-            p.sendMessage(Config.getNoPermission());
+            p.sendMessage(Lang.getNoPermission());
             return true;
         }
 
@@ -40,7 +40,7 @@ public class FeedCommand
 
         target = Bukkit.getPlayer(args[0]);
         if (target == null) {
-            p.sendMessage(Config.getDoesNotExistOrIsOffline());
+            p.sendMessage(Lang.getDoesNotExistOrIsOffline());
             return true;
         }
 

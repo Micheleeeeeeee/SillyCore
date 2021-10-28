@@ -1,8 +1,28 @@
-ban: 'sillycore.admin.ban'
+# Nickname
+nick: 'sillycore.misc.nick'
+nick_others: 'sillycore.misc.nick.others'
+nick_filter_bypass: 'sillycore.misc.nick.bypass'
+
+# Vanish
 vanish: 'sillycore.mod.vanish'
-bypass_nickname_filter: 'sillycore.mod.nickname.bypass'
-bypass_chat_filter: 'sillycore.member.chat.bypass'
-reload_config: 'sillycore.admin.manage.reloadconfig'
+vanish_others: 'sillycore.mod.vanish.others'
+
+# Chat
+broadcast: 'sillycore.chat.broadcast'
+bypass_filter: 'sillycore.chat.bypass'
+
+# Punishments
 
 mute: 'sillycore.mod.mute'
-mute_others: 'sillycore.mod.mute_other'
+kick: 'sillycore.mod.kick'
+warn: 'sillycore.mod.warn'
+ban: 'sillycore.mod.ban'
+
+blacklist: 'sillycore.administrator.blacklist'
+# WARNING: THE BLACKLIST COMMAND DOES NOT HAVE AN UNBLACKLIST COMMAND.
+# YOU CAN ONLY REMOVE SOMEONE MANUALLY. BE SURE OF WHAT YOU ARE DOING.
+
+# Server Management
+
+reload_config: 'sillycore.server.reload_config'
+operator: 'sillycore.server.useop'

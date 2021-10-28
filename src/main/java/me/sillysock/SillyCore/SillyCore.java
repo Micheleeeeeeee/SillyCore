@@ -1,6 +1,7 @@
 package me.sillysock.SillyCore;
 
-import me.sillysock.SillyCore.API.Config;
+import me.sillysock.SillyCore.API.Configuration.Config;
+import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.Commands.Administrator.Vanish;
 import me.sillysock.SillyCore.Commands.Member.FeedCommand;
 import me.sillysock.SillyCore.Commands.Member.HealCommand;
@@ -11,10 +12,7 @@ import me.sillysock.SillyCore.Listeners.CancelOpCommand;
 import me.sillysock.SillyCore.Listeners.PlayerJoinQuitEventHandlers;
 import me.sillysock.SillyCore.Managers.NickManager;
 import me.sillysock.SillyCore.Managers.ServerManager;
-import org.bukkit.ChatColor;
 import org.bukkit.command.CommandExecutor;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -45,10 +43,10 @@ public final class SillyCore
 
         // Initialisation of config values
         reloadConfig();
-        Config.setConfigValues();
+        Config.setValues();
 
         // Log...
-        logger.log(Level.INFO, Config.getStartupMessage());
+        logger.log(Level.INFO, Lang.getStartupMessage());
     }
 
     @Override public void onDisable() {
@@ -56,19 +54,8 @@ public final class SillyCore
         pluginManager = null;
         instance = null;
 
-        System.out.printf("The plugin has been disabled.\n");
+        System.out.print("The plugin has been disabled.\n");
     }
-
-    private void registerCommand(final String name, final CommandExecutor executor) {
-        getCommand(name).setExecutor(executor);
-        logger.log(Level.INFO, "Command /" + name + " registered from " + executor);
-    }
-
-    private void registerEvent(final String name, final Listener listener) {
-        getPluginManager().registerEvents(listener, getInstance());
-        logger.log(Level.INFO, "Event " + name + " registered from " + listener);
-    }
-
 
     private void registerEventsAndCommands() {
         // Registration of events/commands
@@ -81,6 +68,16 @@ public final class SillyCore
         registerCommand("server", new ServerManager());
         registerCommand("feed", new FeedCommand());
         registerCommand("heal", new HealCommand());
+    }
+
+    private void registerCommand(final String name, final CommandExecutor executor) {
+        getCommand(name).setExecutor(executor);
+        logger.log(Level.INFO, "Command /" + name + " registered from " + executor);
+    }
+
+    private void registerEvent(final String name, final Listener listener) {
+        getPluginManager().registerEvents(listener, getInstance());
+        logger.log(Level.INFO, "Event " + name + " registered from " + listener);
     }
 
     public static void setInstance(SillyCore instance) {
