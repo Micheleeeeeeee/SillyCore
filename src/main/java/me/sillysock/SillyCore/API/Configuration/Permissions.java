@@ -20,6 +20,7 @@ public class Permissions {
 
     private static String vanish;
     private static String vanishOthers;
+    private static String seeVanished;
 
     private static String broadcast;
     private static String chatFilterBypass;
@@ -61,6 +62,7 @@ public class Permissions {
         setFeed(get("feed"));
         setHeal(get("heal"));
         setFly(get("fly"));
+        setSeeVanished(get("see_vanished"));
     }
 
     public static void clear() {
@@ -227,5 +229,13 @@ public class Permissions {
 
     public static void setFly(String fly) {
         Permissions.fly = fly;
+    }
+
+    public static String getSeeVanished() {
+        return seeVanished;
+    }
+
+    public static void setSeeVanished(String seeVanished) {
+        Permissions.seeVanished = seeVanished;
     }
 }

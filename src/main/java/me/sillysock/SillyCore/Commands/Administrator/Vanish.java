@@ -1,5 +1,6 @@
 package me.sillysock.SillyCore.Commands.Administrator;
 
+import me.sillysock.SillyCore.API.Configuration.Permissions;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -40,7 +41,7 @@ public class Vanish
 
         } else {
             for (final Player pl : Bukkit.getOnlinePlayers()) {
-                pl.hidePlayer(p);
+                if (!pl.hasPermission(Permissions.getSeeVanished())) pl.hidePlayer(p);
             }
             p.sendMessage(ChatColor.GREEN + "You are " + ChatColor.YELLOW + "now " + ChatColor.GREEN + "vanished.");
             vanished.add(p);
