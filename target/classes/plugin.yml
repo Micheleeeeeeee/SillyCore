@@ -23,3 +23,5 @@ commands:
     description: Feed yourself or another player.
   heal:
     description: Heal yourself or another player.
+  fly:
+    description: Toggle flight for yourself or another player.

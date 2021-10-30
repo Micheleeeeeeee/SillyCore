@@ -1,6 +1,7 @@
 package me.sillysock.SillyCore.Commands.Member;
 
 import me.sillysock.SillyCore.API.Configuration.Lang;
+import me.sillysock.SillyCore.API.Configuration.Permissions;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -26,7 +27,7 @@ public class FeedCommand
         }
 
         p = (Player) sender;
-        if (!p.hasPermission("sillycore.feed.todo")) {
+        if (!p.hasPermission(Permissions.getFeed())) {
             p.sendMessage(Lang.getNoPermission());
             return true;
         }

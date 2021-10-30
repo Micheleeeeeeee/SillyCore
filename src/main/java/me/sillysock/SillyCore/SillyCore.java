@@ -2,8 +2,10 @@ package me.sillysock.SillyCore;
 
 import me.sillysock.SillyCore.API.Configuration.Config;
 import me.sillysock.SillyCore.API.Configuration.Lang;
+import me.sillysock.SillyCore.API.Util.SillyFile;
 import me.sillysock.SillyCore.Commands.Administrator.Vanish;
 import me.sillysock.SillyCore.Commands.Member.FeedCommand;
+import me.sillysock.SillyCore.Commands.Member.FlyCommand;
 import me.sillysock.SillyCore.Commands.Member.HealCommand;
 import me.sillysock.SillyCore.Commands.Member.MemberListCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
@@ -53,6 +55,10 @@ public final class SillyCore
         logger = null;
         pluginManager = null;
         instance = null;
+        dataFolder = null;
+        nicknameManager = null;
+        System.gc();
+        Config.clear();
 
         System.out.print("The plugin has been disabled.\n");
     }
@@ -68,14 +74,17 @@ public final class SillyCore
         registerCommand("server", new ServerManager());
         registerCommand("feed", new FeedCommand());
         registerCommand("heal", new HealCommand());
+        registerCommand("fly", new FlyCommand());
     }
 
-    private void registerCommand(final String name, final CommandExecutor executor) {
+    private void registerCommand(final String name,
+                                 final CommandExecutor executor) {
         getCommand(name).setExecutor(executor);
         logger.log(Level.INFO, "Command /" + name + " registered from " + executor);
     }
 
-    private void registerEvent(final String name, final Listener listener) {
+    private void registerEvent(final String name,
+                               final Listener listener) {
         getPluginManager().registerEvents(listener, getInstance());
         logger.log(Level.INFO, "Event " + name + " registered from " + listener);
     }

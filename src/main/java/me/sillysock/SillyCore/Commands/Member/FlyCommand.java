@@ -11,30 +11,31 @@ import org.bukkit.entity.Player;
 
 import java.util.logging.Level;
 
-public class HealCommand implements CommandExecutor {
+public class FlyCommand implements CommandExecutor {
 
     private Player target;
 
-    @Override
-    public boolean onCommand(final CommandSender sender, final Command cmd,
-                             final String label, final String[] args) {
-
+    @Override public boolean onCommand(final CommandSender sender, final Command cmd,
+                                    final String label, final String[] args) {
         if (!(sender instanceof Player p)) {
             SillyCore.getLog().log(Level.SEVERE, "Only players may execute this command.");
             return true;
         }
 
-        if (!p.hasPermission(Permissions.getHeal())) {
+        if (!p.hasPermission(Permissions.getFly())) {
             p.sendMessage(Lang.getNoPermission());
             return true;
         }
 
         if (args.length == 0) {
-            p.setHealthScale(20);
-            p.setHealth(20);
-            p.setFoodLevel(20);
-            p.sendMessage("You have been healed. (todo in lang)");
+            if (p.getAllowFlight()) {
+                p.setAllowFlight(false);
+                p.sendMessage(Lang.getFlyOff());
+            } else {
+                p.setAllowFlight(true);
+                p.sendMessage(Lang.getFlyOn());
 
+            }
             return true;
         }
 
@@ -44,13 +45,16 @@ public class HealCommand implements CommandExecutor {
             return true;
         }
 
-        target.setHealth(20);
-        target.setHealthScale(20);
-        target.setFoodLevel(20);
-        target.sendMessage("You have been healed. (todo in lang)");
-        p.sendMessage("You have healed %s", target.getName());
+        if (target.getAllowFlight()) {
+            target.setAllowFlight(false);
+            target.sendMessage(Lang.getFlyOff());
+            p.sendMessage(Lang.formatFlyOtherOff(target.getName()));
+        } else {
+            target.setAllowFlight(true);
+            target.sendMessage(Lang.getFlyOn());
+            p.sendMessage(Lang.formatFlyOtherOn(target.getName()));
+        }
 
         return false;
     }
-
 }

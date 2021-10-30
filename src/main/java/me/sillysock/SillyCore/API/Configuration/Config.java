@@ -5,7 +5,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.List;
 
-public class Config {
+public final class Config {
 
     private static FileConfiguration config;
 
@@ -22,6 +22,14 @@ public class Config {
 
         Lang.setValues();
         Permissions.setValues();
+    }
+
+    public static void clear() {
+        Lang.clear();
+        Permissions.clear();
+        config = null;
+        setConfig(null);
+        setNicknameBadWords(null);
     }
 
     public static List<String> getNicknameBadWords() {

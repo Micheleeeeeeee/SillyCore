@@ -3,6 +3,8 @@ me/sillysock/SillyCore/Listeners/PlayerJoinQuitEventHandlers.class
 me/sillysock/SillyCore/API/Util/ISillyPlayer.class
 me/sillysock/SillyCore/API/Util/MessageUtils.class
 me/sillysock/SillyCore/Commands/Miscellaneous/RealnameCommand.class
+me/sillysock/SillyCore/Commands/Member/FlyCommand.class
+me/sillysock/SillyCore/API/Util/SillyFile.class
 me/sillysock/SillyCore/API/Configuration/Permissions.class
 me/sillysock/SillyCore/Commands/Member/MemberListCommand.class
 me/sillysock/SillyCore/Commands/Member/HealCommand.class

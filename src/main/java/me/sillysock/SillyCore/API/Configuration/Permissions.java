@@ -32,6 +32,10 @@ public class Permissions {
     private static String reloadConfig;
     private static String op;
 
+    private static String feed;
+    private static String heal;
+    private static String fly;
+
 
     // Final Variables (don't need to be refreshed)
     private static final File dataFolder = SillyCore.getSillyDataFolder();
@@ -46,15 +50,35 @@ public class Permissions {
         setKick(get("kick"));
         setBroadcast(get("broadcast"));
         setMute(get("mute"));
-        setNick(get("nickname"));
+        setNick(get("nick"));
         setNickOthers(get("nick_others"));
-        setVanish("vanish");
-        setVanishOthers("vanish_others");
-        setChatFilterBypass("bypass_filter");
-        setReloadConfig("reload_config");
-        setOp("operator");
-        setNickFilterBypass("nick_filter_bypass");
+        setVanish(get("vanish"));
+        setVanishOthers(get("vanish_others"));
+        setChatFilterBypass(get("bypass_filter"));
+        setReloadConfig(get("reload_config"));
+        setOp(get("operator"));
+        setNickFilterBypass(get("nick_filter_bypass"));
+        setFeed(get("feed"));
+        setHeal(get("heal"));
+        setFly(get("fly"));
+    }
 
+    public static void clear() {
+        fly = null;
+        heal = null;
+        feed = null;
+        nickFilterBypass = null;
+        op = null;
+        reloadConfig = null;
+        chatFilterBypass = null;
+        vanish = null;
+        vanishOthers = null;
+        nickOthers = null;
+        nick = null;
+        mute = null;
+        broadcast = null;
+        ban = null;
+        kick = null;
     }
     
     private static String get(final String path) {
@@ -179,5 +203,29 @@ public class Permissions {
 
     public static void setOp(String op) {
         Permissions.op = op;
+    }
+
+    public static String getFeed() {
+        return feed;
+    }
+
+    public static void setFeed(String feed) {
+        Permissions.feed = feed;
+    }
+
+    public static String getHeal() {
+        return heal;
+    }
+
+    public static void setHeal(String heal) {
+        Permissions.heal = heal;
+    }
+
+    public static String getFly() {
+        return fly;
+    }
+
+    public static void setFly(String fly) {
+        Permissions.fly = fly;
     }
 }

@@ -26,3 +26,9 @@ blacklist: 'sillycore.administrator.blacklist'
 
 reload_config: 'sillycore.server.reload_config'
 operator: 'sillycore.server.useop'
+
+# Player
+
+feed: 'sillycore.misc.feed'
+heal: 'sillycore.misc.heal'
+fly: 'sillycore.misc.fly'

@@ -1,11 +1,9 @@
 package me.sillysock.SillyCore.API.Configuration;
 
 import me.sillysock.SillyCore.API.Util.MessageUtils;
-import me.sillysock.SillyCore.API.Util.SillyPlayer;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import org.bukkit.entity.Player;
 
 import java.io.File;
 
@@ -26,6 +24,11 @@ public class Lang {
     private static String doesNotExistOrIsOffline;
     private static String realnameSuccess;
     private static String nickSuccess;
+    private static String nameReset;
+    private static String flyOn;
+    private static String flyOff;
+    private static String flyOtherOn;
+    private static String flyOtherOff;
 
     private static String prefix;
 
@@ -48,6 +51,25 @@ public class Lang {
         setPrefix(lang.getString("prefix"));
         setRealnameSuccess(lang.getString("realname"));
         setNickSuccess(lang.getString("player_nicked"));
+        setFlyOn(lang.getString("fly_on"));
+        setFlyOff(lang.getString("fly_off"));
+        setFlyOtherOff(lang.getString("fly_other_off"));
+        setFlyOtherOn(lang.getString("fly_other_on"));
+    }
+
+    public static void clear() {
+        nickSuccess = null;
+        realnameSuccess = null;
+        prefix = null;
+        doesNotExistOrIsOffline = null;
+        realnameInsufficientArguments = null;
+        nicknameInsufficientArguments = null;
+        opCommandDisabled = null;
+        notNicked = null;
+        noPermission = null;
+        quitMessage = null;
+        joinMessage = null;
+        startupMessage = null;
     }
 
     public static FileConfiguration getLang() {
@@ -150,15 +172,6 @@ public class Lang {
         Lang.realnameSuccess = MessageUtils.format(realnameSuccess);
     }
 
-    public static String formatRealnameSuccess(final String name, String nickName) {
-        return MessageUtils.format(getRealnameSuccess().replace("{realname}", name)
-                .replace("{nickname}", nickName));
-    }
-
-    public static String formatNickSuccess(final String nick) {
-        return MessageUtils.format(getNickSuccess().replace("{nickname}", nick));
-    }
-
     public static String getPrefix() {
         return prefix;
     }
@@ -172,6 +185,72 @@ public class Lang {
     }
 
     public static void setNickSuccess(String nickSuccess) {
-        Lang.nickSuccess = nickSuccess;
+        Lang.nickSuccess = MessageUtils.format(nickSuccess);
+    }
+
+    public static String getNameReset() {
+        return nameReset;
+    }
+
+    public static void setNameReset(String nameReset) {
+        Lang.nameReset = MessageUtils.format(nameReset);
+    }
+
+    public static String getFlyOn() {
+        return flyOn;
+    }
+
+    public static void setFlyOn(String flyOn) {
+        Lang.flyOn = MessageUtils.format(flyOn);
+    }
+
+    public static String getFlyOff() {
+        return flyOff;
+    }
+
+    public static void setFlyOff(String flyOff) {
+        Lang.flyOff = MessageUtils.format(flyOff);
+    }
+
+    public static String getFlyOtherOn() {
+        return flyOtherOn;
+    }
+
+    public static void setFlyOtherOn(String flyOtherOn) {
+        Lang.flyOtherOn = MessageUtils.format(flyOtherOn);
+    }
+
+    public static String getFlyOtherOff() {
+        return flyOtherOff;
+    }
+
+    public static void setFlyOtherOff(String flyOtherOff) {
+        Lang.flyOtherOff = MessageUtils.format(flyOtherOff);
+    }
+
+    public static String formatRealnameSuccess(final String name, String nickName) {
+        return MessageUtils.format(getRealnameSuccess()
+                .replace("{realname}", name)
+                .replace("{nickname}", nickName));
+    }
+
+    public static String formatNickSuccess(final String nick) {
+        return MessageUtils.format(getNickSuccess()
+                .replace("{nickname}", nick));
+    }
+
+    public static String formatNameReset(final String name) {
+        return MessageUtils.format(getNameReset()
+                .replace("{name}", name));
+    }
+
+    public static String formatFlyOtherOn(final String name) {
+        return MessageUtils.format(getFlyOtherOn()
+                .replace("{name}", name));
+    }
+
+    public static String formatFlyOtherOff(final String name) {
+        return MessageUtils.format(getFlyOtherOff()
+                .replace("{name}", name));
     }
 }
