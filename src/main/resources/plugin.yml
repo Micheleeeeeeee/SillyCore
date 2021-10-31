@@ -27,3 +27,6 @@ commands:
     description: Heal yourself or another player.
   fly:
     description: Toggle flight for yourself or another player.
+  teleport:
+    description: Teleport you, or another player to someone.
+    aliases: [tp]
