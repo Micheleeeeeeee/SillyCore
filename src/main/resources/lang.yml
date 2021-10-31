@@ -20,6 +20,7 @@ quit: '&7[&c-&7] {player_name}'
 
 nick_invalidarg: '&cUsage: /nick {reset | player} nickname\nUsage: /nick {reset | nickname}'
 realname_invalidarg: '&cUsage: /realname [player]'
+kick_invalidarg: '&cUsage: /kick [player]'
 
 # Commands
 # Regular output
@@ -31,6 +32,7 @@ fly_on: '&aYou can &cnow&a fly.'
 fly_off: '&aYou can &cno longer&a fly.'
 fly_other_on: '&aFlight has been &cenabled&a for {name}'
 fly_other_off: '&aFlight has been &cdisabled&a for {name}'
+kicked: '&aYou have kicked {name}'
 
 # Join Messages (error)
 
@@ -47,3 +49,7 @@ operator_command_disabled: '&c&lERROR: &cThis command has been disabled.'
 # Chat Errors
 
 muted: '&aYou are not permitted to speak as you have been muted.'
+
+# Other
+
+type_punishment_reason: '&aPlease type the reason for punishment in chat.'

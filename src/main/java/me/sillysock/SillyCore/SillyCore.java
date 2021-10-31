@@ -60,11 +60,11 @@ public final class SillyCore
         // Check updates
         logger.log(Level.INFO, "Attempting to check for updates...");
         checker.getVersion(version -> {
-            if (this.getDescription().getVersion().equals(version)) {
+            if (this.getDescription().getVersion().equals(version))
                 logger.info("There is not a new update available.");
-            } else {
+            else
                 logger.info("There is a new update available, get it from {}");
-            }
+
         });
 
         // Registration of events/commands

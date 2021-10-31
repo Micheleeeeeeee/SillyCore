@@ -29,6 +29,9 @@ public class Lang {
     private static String flyOff;
     private static String flyOtherOn;
     private static String flyOtherOff;
+    private static String youHaveKicked;
+    private static String typePunishmentReason;
+    private static String kickInvalidArg;
 
     private static String prefix;
 
@@ -56,6 +59,9 @@ public class Lang {
         setFlyOtherOff(lang.getString("fly_other_off"));
         setFlyOtherOn(lang.getString("fly_other_on"));
         setNameReset(lang.getString("name_reset"));
+        setYouHaveKicked(lang.getString("kicked"));
+        setTypePunishmentReason(lang.getString("type_punishment_reason"));
+        setKickInvalidArg(lang.getString("kick_invalidarg"));
     }
 
     public static void clear() {
@@ -229,6 +235,31 @@ public class Lang {
         Lang.flyOtherOff = MessageUtils.format(flyOtherOff);
     }
 
+
+    public static String getYouHaveKicked() {
+        return youHaveKicked;
+    }
+
+    public static void setYouHaveKicked(String youHaveKicked) {
+        Lang.youHaveKicked = youHaveKicked;
+    }
+
+    public static String getTypePunishmentReason() {
+        return typePunishmentReason;
+    }
+
+    public static void setTypePunishmentReason(String typePunishmentReason) {
+        Lang.typePunishmentReason = typePunishmentReason;
+    }
+
+    public static String getKickInvalidArg() {
+        return kickInvalidArg;
+    }
+
+    public static void setKickInvalidArg(String kickInvalidArg) {
+        Lang.kickInvalidArg = kickInvalidArg;
+    }
+
     public static String formatRealnameSuccess(final String name, String nickName) {
         return MessageUtils.format(getRealnameSuccess()
                 .replace("{realname}", name)
@@ -252,6 +283,11 @@ public class Lang {
 
     public static String formatFlyOtherOff(final String name) {
         return MessageUtils.format(getFlyOtherOff()
+                .replace("{name}", name));
+    }
+
+    public static String formatYouHaveKicked(final String name) {
+        return MessageUtils.format(getYouHaveKicked()
                 .replace("{name}", name));
     }
 }
