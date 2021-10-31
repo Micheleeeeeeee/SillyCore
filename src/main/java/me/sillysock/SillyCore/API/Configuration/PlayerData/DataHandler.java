@@ -13,7 +13,7 @@ import java.util.UUID;
 
 public class DataHandler {
 
-    File player;
+    private File player;
     private static final File dataFolder = SillyCore.getSillyDataFolder();
     private static HashMap<UUID, FileConfiguration> playerData = new HashMap<>();
 
@@ -56,6 +56,17 @@ public class DataHandler {
 
     public boolean isNicked(final UUID uuid) {
         return !playerData.get(uuid).getString("nick").equals("") ? true : false;
+    }
+
+    public void setNick(final UUID uuid, final String nick) {
+        player = new File(dataFolder, "PlayerData/" + uuid + ".yml");
+        FileConfiguration toSet = YamlConfiguration.loadConfiguration(player);
+        toSet.set("nick", nick);
+        try {
+            toSet.save(player);
+        } catch (IOException e) {
+            SillyCore.getLog().severe("An internal exception occurred whilst saving to " + uuid + ".yml");
+        }
     }
 
     public String getNick(final UUID uuid) {
