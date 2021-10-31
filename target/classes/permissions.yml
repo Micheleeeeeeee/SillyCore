@@ -6,6 +6,7 @@ nick_filter_bypass: 'sillycore.misc.nick.bypass'
 # Vanish
 vanish: 'sillycore.mod.vanish'
 vanish_others: 'sillycore.mod.vanish.others'
+see_vanished: 'sillycore.mod.vanish.see_vanished' # Preferably this should only be given to moderation personnel.
 
 # Chat
 broadcast: 'sillycore.chat.broadcast'

@@ -1,10 +1,12 @@
 main: me.sillysock.SillyCore.SillyCore
-version: 1.0
+version: 1.0-DeveloperBeta
 api-version: 1.17
 name: SillyCore
 author: Sillysockk
 
 commands:
+  kick:
+    description: Punish players by removing them from the server.
   dev:
     description: Developer Commands.
   staff:

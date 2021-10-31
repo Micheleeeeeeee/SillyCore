@@ -55,6 +55,7 @@ public class Lang {
         setFlyOff(lang.getString("fly_off"));
         setFlyOtherOff(lang.getString("fly_other_off"));
         setFlyOtherOn(lang.getString("fly_other_on"));
+        setNameReset(lang.getString("name_reset"));
     }
 
     public static void clear() {

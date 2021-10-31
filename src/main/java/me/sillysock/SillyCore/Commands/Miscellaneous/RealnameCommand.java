@@ -1,5 +1,6 @@
 package me.sillysock.SillyCore.Commands.Miscellaneous;
 
+import com.google.common.collect.BiMap;
 import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.command.Command;
@@ -15,7 +16,7 @@ public class RealnameCommand
 
     Player p;
     Player target;
-    HashMap<String, Player> nickedPlayers = SillyCore.getNicknameManager().getNicknamedPlayers();
+    BiMap<Player, String> nickedPlayers = SillyCore.getNicknameManager().getNicknamedPlayers();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -31,7 +32,7 @@ public class RealnameCommand
             return true;
         }
 
-        target = nickedPlayers.get(args[0]);
+        target = nickedPlayers.inverse().get(args[0]);
 
         if (target == null) {
             p.sendMessage(Lang.getNotNicked());
