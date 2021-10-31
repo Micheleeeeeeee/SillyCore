@@ -64,6 +64,7 @@ public class Permissions {
         setHeal(get("heal"));
         setFly(get("fly"));
         setSeeVanished(get("see_vanished"));
+        setTeleport(get("teleport"));
     }
 
     public static void clear() {

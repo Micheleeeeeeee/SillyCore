@@ -68,6 +68,7 @@ public class Lang {
         setKickInvalidArg(lang.getString("kick_invalidarg"));
         setTeleported(lang.getString("teleported"));
         setTeleportedToSelf(lang.getString("teleported_to_self"));
+        setTeleportInvalidArg(lang.getString("teleport_invalidarg"));
     }
 
     public static void clear() {
