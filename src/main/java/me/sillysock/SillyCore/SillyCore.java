@@ -53,18 +53,20 @@ public final class SillyCore
         instance = this;
         nicknameManager = new NickManager();
         dataFolder = getDataFolder();
-        checker = new UpdateChecker(this, 531961);
+        checker = new UpdateChecker(this, 97288);
         dataHandler = new DataHandler();
         createPlayerDataFolder();
 
         // Check updates
         logger.log(Level.INFO, "Attempting to check for updates...");
         checker.getVersion(version -> {
-            if (this.getDescription().getVersion().equals(version))
+            if (this.getDescription().getVersion().equals(version)) {
                 logger.info("There is not a new update available.");
-            else
+            } else {
                 logger.info("There is a new update available, get it from https://www.spigotmc.org/threads/sillycore.531961/");
-
+                logger.info("You are on: " + this.getDescription().getVersion());
+                logger.info("Latest is: " + version);
+            }
         });
 
         // Registration of events/commands
