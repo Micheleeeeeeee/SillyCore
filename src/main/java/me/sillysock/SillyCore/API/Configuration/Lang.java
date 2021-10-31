@@ -33,6 +33,10 @@ public class Lang {
     private static String typePunishmentReason;
     private static String kickInvalidArg;
 
+    private static String teleported;
+    private static String teleportedToSelf;
+    private static String teleportInvalidArg;
+
     private static String prefix;
 
     public static void setValues() {
@@ -62,6 +66,8 @@ public class Lang {
         setYouHaveKicked(lang.getString("kicked"));
         setTypePunishmentReason(lang.getString("type_punishment_reason"));
         setKickInvalidArg(lang.getString("kick_invalidarg"));
+        setTeleported(lang.getString("teleported"));
+        setTeleportedToSelf(lang.getString("teleported_to_self"));
     }
 
     public static void clear() {
@@ -235,13 +241,20 @@ public class Lang {
         Lang.flyOtherOff = MessageUtils.format(flyOtherOff);
     }
 
+    public static String getTeleportInvalidArg() {
+        return teleportInvalidArg;
+    }
+
+    public static void setTeleportInvalidArg(String teleportInvalidArg) {
+        Lang.teleportInvalidArg = MessageUtils.format(teleportInvalidArg);
+    }
 
     public static String getYouHaveKicked() {
         return youHaveKicked;
     }
 
     public static void setYouHaveKicked(String youHaveKicked) {
-        Lang.youHaveKicked = youHaveKicked;
+        Lang.youHaveKicked = MessageUtils.format(youHaveKicked);
     }
 
     public static String getTypePunishmentReason() {
@@ -249,7 +262,7 @@ public class Lang {
     }
 
     public static void setTypePunishmentReason(String typePunishmentReason) {
-        Lang.typePunishmentReason = typePunishmentReason;
+        Lang.typePunishmentReason = MessageUtils.format(typePunishmentReason);
     }
 
     public static String getKickInvalidArg() {
@@ -257,7 +270,23 @@ public class Lang {
     }
 
     public static void setKickInvalidArg(String kickInvalidArg) {
-        Lang.kickInvalidArg = kickInvalidArg;
+        Lang.kickInvalidArg = MessageUtils.format(kickInvalidArg);
+    }
+
+    public static String getTeleported() {
+        return teleported;
+    }
+
+    public static void setTeleported(String teleported) {
+        Lang.teleported = MessageUtils.format(teleported);
+    }
+
+    public static String getTeleportedToSelf() {
+        return teleportedToSelf;
+    }
+
+    public static void setTeleportedToSelf(String teleportedToSelf) {
+        Lang.teleportedToSelf = MessageUtils.format(teleportedToSelf);
     }
 
     public static String formatRealnameSuccess(final String name, String nickName) {
@@ -288,6 +317,16 @@ public class Lang {
 
     public static String formatYouHaveKicked(final String name) {
         return MessageUtils.format(getYouHaveKicked()
+                .replace("{name}", name));
+    }
+
+    public static String formatTeleported(final String name) {
+        return MessageUtils.format(getTeleported()
+                .replace("{name}", name));
+    }
+
+    public static String formatTeleportedToSelf(final String name) {
+        return MessageUtils.format(getTeleportedToSelf()
                 .replace("{name}", name));
     }
 }
