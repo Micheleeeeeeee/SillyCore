@@ -10,8 +10,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-import java.util.HashMap;
-
 public class KickListeners implements Listener {
 
     private static final BiMap<Player, Player> typingReason = KickCommand.getTypingReason();
