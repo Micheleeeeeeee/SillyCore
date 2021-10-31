@@ -53,7 +53,7 @@ public final class SillyCore
         instance = this;
         nicknameManager = new NickManager();
         dataFolder = getDataFolder();
-        checker = new UpdateChecker(this, 94376);
+        checker = new UpdateChecker(this, 531961);
         dataHandler = new DataHandler();
         createPlayerDataFolder();
 
@@ -63,7 +63,7 @@ public final class SillyCore
             if (this.getDescription().getVersion().equals(version))
                 logger.info("There is not a new update available.");
             else
-                logger.info("There is a new update available, get it from {}");
+                logger.info("There is a new update available, get it from https://www.spigotmc.org/threads/sillycore.531961/");
 
         });
 
