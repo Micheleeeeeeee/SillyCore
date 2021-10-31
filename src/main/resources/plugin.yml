@@ -1,10 +1,12 @@
 main: me.sillysock.SillyCore.SillyCore
-version: 1.0
+version: 1.0-DeveloperBeta
 api-version: 1.17
 name: SillyCore
 author: Sillysockk
 
 commands:
+  kick:
+    description: Punish players by removing them from the server.
   dev:
     description: Developer Commands.
   staff:
@@ -13,3 +15,15 @@ commands:
     description: dude.
   memberlist:
     description: Lists all players online.
+  nick:
+    description: test
+  realname:
+    description: balls
+  server:
+    description: Manage the server.
+  feed:
+    description: Feed yourself or another player.
+  heal:
+    description: Heal yourself or another player.
+  fly:
+    description: Toggle flight for yourself or another player.

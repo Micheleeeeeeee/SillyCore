@@ -41,9 +41,9 @@ public class MemberListCommand
             if (memberList.length() + 1 == Bukkit.getOnlinePlayers().size()) {
                 memberList.append(pl.getName());
             }
-            memberList.append(pl.getName() + ", ");
+            memberList.append(pl.getName()).append(", ");
         }
-        memberList.append(ChatColor.GRAY + (Bukkit.getOnlinePlayers().size() > 1 ? "\nThere are currently " + Bukkit.getOnlinePlayers().size() + " players online" : "\nThere is currently 1 player online."));
+        memberList.append(ChatColor.GRAY).append(Bukkit.getOnlinePlayers().size() > 1 ? "\nThere are currently " + Bukkit.getOnlinePlayers().size() + " players online" : "\nThere is currently 1 player online.");
 
         p.sendMessage(memberList.toString());
     }

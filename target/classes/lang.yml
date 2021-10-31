@@ -1,2 +1,49 @@
-startup_message: 'The plugin successfully started up.'
-no_permission: '&cYou do not have permission to execute this command.'
+# Silly Core - The most powerful plugin to manage your Minecraft server.
+# lang.yml - Customize the messages SillyCore sends to the users.
+# If there are placeholders, it is highly recommended using them.
+# If you want to use Chat Colors such as the & codes, you can use them
+# and they will be formatted automatically.
+# Hex code support will come soon. [#FFFFFF]
+
+prefix: '&aSillyCore'
+server_name: 'YOUR_SERVER_NAME'
+
+target_offline: '&cThe target player {target_name} does not exist.'
+startup: 'The plugin successfully started up.'
+no_permission: '&c&lERROR: &cYou do not have permission to execute this command.'
+
+join: '&7[&a+&7] {player_name}'
+quit: '&7[&c-&7] {player_name}'
+
+# Commands
+# Insufficient Arguments
+
+nick_invalidarg: '&cUsage: /nick {reset | player} nickname\nUsage: /nick {reset | nickname}'
+realname_invalidarg: '&cUsage: /realname [player]'
+
+# Commands
+# Regular output
+
+realname: "{nickname}'s real name is: {realname}" # Example: "Mike's real name is Mike1324"
+player_nicked: '&aYour nickname has been changed to &6{nickname}&a.'
+name_reset: '&aYour name has been reset to {name}'
+fly_on: '&aYou can &cnow&a fly.'
+fly_off: '&aYou can &cno longer&a fly.'
+fly_other_on: '&aFlight has been &cenabled&a for {name}'
+fly_other_off: '&aFlight has been &cdisabled&a for {name}'
+
+# Join Messages (error)
+
+blacklisted: '&c&lYou have been blacklisted from {servername}'
+banned: '&c&lYou have been banned from {servername}'
+
+# Commands
+# Errors
+
+not_nicked: '&cThe target player is not nicked!'
+operator_command_disabled: '&c&lERROR: &cThis command has been disabled.'
+
+
+# Chat Errors
+
+muted: '&aYou are not permitted to speak as you have been muted.'

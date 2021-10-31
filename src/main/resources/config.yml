@@ -11,4 +11,5 @@ nickname_bad_words:
   # - 'bad'
   # - 'words'
 
-op_command_enabled: true # false for not enabled!
+disable_op: false # True to enable op
+
