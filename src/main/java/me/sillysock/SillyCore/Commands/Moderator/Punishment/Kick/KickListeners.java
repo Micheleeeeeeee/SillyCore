@@ -1,5 +1,7 @@
 package me.sillysock.SillyCore.Commands.Moderator.Punishment.Kick;
 
+import com.google.common.collect.BiMap;
+import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.API.Util.MessageUtils;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
@@ -12,7 +14,7 @@ import java.util.HashMap;
 
 public class KickListeners implements Listener {
 
-    private static final HashMap<Player, Player> typingReason = KickCommand.getTypingReason();
+    private static final BiMap<Player, Player> typingReason = KickCommand.getTypingReason();
     private Player target;
 
     @EventHandler
@@ -23,15 +25,14 @@ public class KickListeners implements Listener {
         if (!typingReason.containsKey(p)) return;
 
         target = typingReason.get(p);
-        p.sendMessage("Contains!");
         e.setCancelled(true);
 
         // The below code is to kick a player while not being asynchronous.
         Bukkit.getScheduler().runTask(SillyCore.getInstance(), new Runnable() {
             public void run() {
-                p.kickPlayer(MessageUtils.format("&c&l" + msg));
+                p.kickPlayer(MessageUtils.format(msg));
             }
         });
-        p.sendMessage("You have kicked " + target.getName());
+        p.sendMessage(Lang.formatYouHaveKicked(target.getName()));
     }
 }

@@ -1,5 +1,7 @@
 package me.sillysock.SillyCore.Commands.Moderator.Punishment.Kick;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.API.Configuration.Permissions;
 import me.sillysock.SillyCore.SillyCore;
@@ -14,7 +16,7 @@ import java.util.logging.Level;
 
 public class KickCommand implements CommandExecutor {
 
-    private static final HashMap<Player, Player> typingReason = new HashMap<>();
+    private static final BiMap<Player, Player> typingReason = HashBiMap.create();
     private Player target;
 
     @Override
@@ -31,7 +33,7 @@ public class KickCommand implements CommandExecutor {
         }
 
         if (args.length == 0) {
-            p.sendMessage("todo no args");
+            p.sendMessage(Lang.getKickInvalidArg());
             return true;
         }
 
@@ -41,13 +43,13 @@ public class KickCommand implements CommandExecutor {
             return true;
         }
 
-        p.sendMessage("Please type the reason for the punishment in chat.");
+        p.sendMessage(Lang.getTypePunishmentReason());
         typingReason.put(p, target);
 
         return false;
     }
 
-    public static HashMap<Player, Player> getTypingReason() {
+    public static BiMap<Player, Player> getTypingReason() {
         return typingReason;
     }
 }
