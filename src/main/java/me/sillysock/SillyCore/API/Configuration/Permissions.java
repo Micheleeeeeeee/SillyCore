@@ -36,6 +36,7 @@ public class Permissions {
     private static String feed;
     private static String heal;
     private static String fly;
+    private static String teleport;
 
 
     // Final Variables (don't need to be refreshed)
@@ -237,5 +238,13 @@ public class Permissions {
 
     public static void setSeeVanished(String seeVanished) {
         Permissions.seeVanished = seeVanished;
+    }
+
+    public static String getTeleport() {
+        return teleport;
+    }
+
+    public static void setTeleport(String teleport) {
+        Permissions.teleport = teleport;
     }
 }
