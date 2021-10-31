@@ -3,6 +3,7 @@ me/sillysock/SillyCore/Listeners/PlayerJoinQuitEventHandlers.class
 me/sillysock/SillyCore/Commands/Miscellaneous/Credits.class
 me/sillysock/SillyCore/Commands/Member/FlyCommand.class
 me/sillysock/SillyCore/API/Util/SillyFile.class
+me/sillysock/SillyCore/Commands/Member/TeleportCommand.class
 me/sillysock/SillyCore/API/Configuration/Permissions.class
 me/sillysock/SillyCore/Commands/Moderator/Punishment/Kick/KickCommand.class
 me/sillysock/SillyCore/Commands/Member/MemberListCommand.class

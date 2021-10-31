@@ -7,10 +7,7 @@ import me.sillysock.SillyCore.API.Configuration.PlayerData.PlayerDataListener;
 import me.sillysock.SillyCore.API.UpdateChecker;
 import me.sillysock.SillyCore.API.Util.MessageUtils;
 import me.sillysock.SillyCore.Commands.Administrator.Vanish;
-import me.sillysock.SillyCore.Commands.Member.FeedCommand;
-import me.sillysock.SillyCore.Commands.Member.FlyCommand;
-import me.sillysock.SillyCore.Commands.Member.HealCommand;
-import me.sillysock.SillyCore.Commands.Member.MemberListCommand;
+import me.sillysock.SillyCore.Commands.Member.*;
 import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.RealnameCommand;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.Kick.KickCommand;
@@ -111,6 +108,7 @@ public final class SillyCore
         registerCommand("heal", new HealCommand());
         registerCommand("fly", new FlyCommand());
         registerCommand("kick", new KickCommand());
+        registerCommand("teleport", new TeleportCommand());
     }
 
     private void registerCommand(final String name,

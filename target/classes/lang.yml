@@ -21,6 +21,7 @@ quit: '&7[&c-&7] {player_name}'
 nick_invalidarg: '&cUsage: /nick {reset | player} nickname\nUsage: /nick {reset | nickname}'
 realname_invalidarg: '&cUsage: /realname [player]'
 kick_invalidarg: '&cUsage: /kick [player]'
+teleport_invalidarg: '&cUsage: /teleport [player] OR [player] [other-player]'
 
 # Commands
 # Regular output
@@ -28,11 +29,16 @@ kick_invalidarg: '&cUsage: /kick [player]'
 realname: "{nickname}'s real name is: {realname}" # Example: "Mike's real name is Mike1324"
 player_nicked: '&aYour nickname has been changed to &6{nickname}&a.'
 name_reset: '&aYour name has been reset to {name}'
+
 fly_on: '&aYou can &cnow&a fly.'
 fly_off: '&aYou can &cno longer&a fly.'
 fly_other_on: '&aFlight has been &cenabled&a for {name}'
 fly_other_off: '&aFlight has been &cdisabled&a for {name}'
+
 kicked: '&aYou have kicked {name}'
+
+teleported: '&aYou have teleported to {name}'
+teleported_to_self: '&aYou have teleported {name} to you.'
 
 # Join Messages (error)
 
