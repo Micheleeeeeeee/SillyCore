@@ -58,10 +58,47 @@ public class MenuApi {
         muteMenu = Bukkit.createInventory(null, 36, ChatColor.YELLOW + "Mute Menu");
 
         muteMenu.setItem(4, getHeadWithInfo(target));
+        final String name = target.getName();
 
         createMenuItem(muteMenu, 10,
                 format("&c1 Minute"), null,
-                format("&fMute " + target.getName()), format("&fFor 1 minute."),
+                format("&fMute " + name), format("&fFor 1 minute."),
+                null, null,
+                Material.TERRACOTTA);
+
+        createMenuItem(muteMenu, 12,
+                format("&c1 Hour"), null,
+                format("&fMute " + name), format("&ffor 1 hour."),
+                null, null,
+                Material.TERRACOTTA);
+
+        createMenuItem(muteMenu, 14,
+                format("&c1 Day"), null,
+                format("&fMute " + name), format("&ffor 1 day."),
+                null, null,
+                Material.TERRACOTTA);
+
+        createMenuItem(muteMenu, 16,
+                format("&c1 Week"), null,
+                format("&fMute " + name), format("&ffor 1 week."),
+                null, null,
+                Material.TERRACOTTA);
+
+        createMenuItem(muteMenu, 20,
+                format("&c1 Month"), null,
+                format("&fMute " + name), format("&ffor 1 Month."),
+                null, null,
+                Material.TERRACOTTA);
+
+        createMenuItem(muteMenu, 24,
+                format("&c1 Year"), null,
+                format("&fMute " + name), format("&ffor 1 year."),
+                null, null,
+                Material.TERRACOTTA);
+
+        createMenuItem(muteMenu, 35,
+                format("&c&lPERMANENT"), null,
+                format("&cPermanently mute " + name + "."), null,
                 null, null,
                 Material.TERRACOTTA);
 
