@@ -30,3 +30,10 @@ commands:
   teleport:
     description: Teleport you, or another player to someone.
     aliases: [tp]
+  tpstest:
+    description: Unless you're silisoc don't run this.
+  # Punishment
+  ban:
+    description: Remove a player from the server.
+  mute:
+    description: Revoke a players rights to speech.

@@ -32,6 +32,9 @@ public class Lang {
     private static String youHaveKicked;
     private static String typePunishmentReason;
     private static String kickInvalidArg;
+    private static String banInvalidArg;
+    private static String warnInvalidArg;
+    private static String muteInvalidArg;
 
     private static String teleported;
     private static String teleportedToSelf;
@@ -69,6 +72,8 @@ public class Lang {
         setTeleported(lang.getString("teleported"));
         setTeleportedToSelf(lang.getString("teleported_to_self"));
         setTeleportInvalidArg(lang.getString("teleport_invalidarg"));
+        setBanInvalidArg(lang.getString("ban_invalidarg"));
+        setMuteInvalidArg(lang.getString("mute_invalidarg"));
     }
 
     public static void clear() {
@@ -288,6 +293,30 @@ public class Lang {
 
     public static void setTeleportedToSelf(String teleportedToSelf) {
         Lang.teleportedToSelf = MessageUtils.format(teleportedToSelf);
+    }
+
+    public static String getBanInvalidArg() {
+        return banInvalidArg;
+    }
+
+    public static void setBanInvalidArg(String banInvalidArg) {
+        Lang.banInvalidArg = banInvalidArg;
+    }
+
+    public static String getWarnInvalidArg() {
+        return warnInvalidArg;
+    }
+
+    public static void setWarnInvalidArg(String warnInvalidArg) {
+        Lang.warnInvalidArg = warnInvalidArg;
+    }
+
+    public static String getMuteInvalidArg() {
+        return muteInvalidArg;
+    }
+
+    public static void setMuteInvalidArg(String muteInvalidArg) {
+        Lang.muteInvalidArg = muteInvalidArg;
     }
 
     public static String formatRealnameSuccess(final String name, String nickName) {

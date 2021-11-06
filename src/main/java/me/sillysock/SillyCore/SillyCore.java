@@ -6,16 +6,22 @@ import me.sillysock.SillyCore.API.Configuration.PlayerData.DataHandler;
 import me.sillysock.SillyCore.API.Configuration.PlayerData.PlayerDataListener;
 import me.sillysock.SillyCore.API.UpdateChecker;
 import me.sillysock.SillyCore.API.Util.MessageUtils;
+
 import me.sillysock.SillyCore.Commands.Administrator.Vanish;
 import me.sillysock.SillyCore.Commands.Member.*;
 import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.RealnameCommand;
+import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus.MenuApi;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.Kick.KickCommand;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.Kick.KickListeners;
+import me.sillysock.SillyCore.Commands.Moderator.Punishment.Mute.MuteCommand;
+import me.sillysock.SillyCore.Commands.Moderator.Punishment.Mute.MuteListener;
+import me.sillysock.SillyCore.Commands.Testing.FloodFileConfigurations;
 import me.sillysock.SillyCore.Listeners.CancelOpCommand;
 import me.sillysock.SillyCore.Listeners.PlayerJoinQuitEventHandlers;
 import me.sillysock.SillyCore.Managers.NickManager;
 import me.sillysock.SillyCore.Managers.ServerManager;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.entity.Player;
@@ -41,7 +47,7 @@ public final class SillyCore
     private static File dataFolder;
     private static UpdateChecker checker;
     private static DataHandler dataHandler;
-
+    private static MenuApi menuApi;
 
     @Override public void onEnable() {
         // Initialise static stuff
@@ -52,6 +58,7 @@ public final class SillyCore
         dataFolder = getDataFolder();
         checker = new UpdateChecker(this, 97288);
         dataHandler = new DataHandler();
+        menuApi = new MenuApi();
         createPlayerDataFolder();
 
         // Check updates
@@ -87,6 +94,7 @@ public final class SillyCore
 
         for (final Player p : Bukkit.getOnlinePlayers()) {
             p.sendMessage(MessageUtils.format("&c&lThe server is being restarted or reloaded."));
+            p.kickPlayer(MessageUtils.format("&cThe server is being restarted or reloaded. Please join again later."));
             logger.info("If you reloaded the server, don't. You should know better!");
         }
         logger = null;
@@ -99,6 +107,7 @@ public final class SillyCore
         registerEvent("Cancel OP Command", new CancelOpCommand());
         registerEvent("Kick Listeners", new KickListeners());
         registerEvent("Data Handler Helper", new PlayerDataListener());
+        registerEvent("Mute Listeners", new MuteListener());
         registerCommand("vanish", new Vanish());
         registerCommand("memberlist", new MemberListCommand());
         registerCommand("nick", new NicknameCommand());
@@ -109,6 +118,8 @@ public final class SillyCore
         registerCommand("fly", new FlyCommand());
         registerCommand("kick", new KickCommand());
         registerCommand("teleport", new TeleportCommand());
+        registerCommand("tpstest", new FloodFileConfigurations());
+        registerCommand("mute", new MuteCommand());
     }
 
     private void registerCommand(final String name,
@@ -154,5 +165,9 @@ public final class SillyCore
 
     public static DataHandler getDataHandler() {
         return dataHandler;
+    }
+
+    public static MenuApi getMenuApi() {
+        return menuApi;
     }
 }
