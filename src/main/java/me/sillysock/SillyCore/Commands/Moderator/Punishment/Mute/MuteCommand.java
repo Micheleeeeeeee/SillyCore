@@ -22,7 +22,6 @@ public class MuteCommand implements CommandExecutor {
 
     private static final BiMap<Player, OfflinePlayer> typingReason = HashBiMap.create();
     private final MenuApi menuApi = SillyCore.getMenuApi();
-    private UUID targetUuid;
     private OfflinePlayer target;
 
     /**
@@ -57,12 +56,11 @@ public class MuteCommand implements CommandExecutor {
             p.sendMessage(Lang.getDoesNotExistOrIsOffline());
             return true;
         }
-        targetUuid = target.getUniqueId();
 
         MenuApi.getPunishmentTypeBiMap().put(p, PunishmentType.MUTE);
         MenuApi.getToPunish().put(p, target);
 
-        p.openInventory(menuApi.createPunishMenu(target));
+        p.openInventory(menuApi.createMuteMenu(target));
 
         return false;
     }

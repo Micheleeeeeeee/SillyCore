@@ -136,7 +136,7 @@ public class DataHandler {
     }
 
     public String getNick(final UUID uuid) {
-        if (!isNicked(uuid)) return "";
+        if (!isNicked(uuid)) return "Not Nicked";
         final String[] out = new String[1];
         Bukkit.getScheduler().runTaskAsynchronously(core, () -> out[0] = loadConfig(uuid)
                 .getString("nick"));

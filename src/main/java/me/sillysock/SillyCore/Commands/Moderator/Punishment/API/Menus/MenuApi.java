@@ -2,7 +2,10 @@ package me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import me.sillysock.SillyCore.API.Configuration.PlayerData.DataHandler;
+import me.sillysock.SillyCore.API.Util.MessageUtils;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.PunishmentType;
+import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -21,7 +24,10 @@ public class MenuApi {
     private static BiMap<Player, OfflinePlayer> toPunish; // Stores the punisher & punishee
     private static BiMap<Player, PunishmentType> punishmentTypeBiMap; // Stores the punisher & the punishmenttype
 
+    private static final DataHandler dataHandler = SillyCore.getDataHandler();
+
     private Inventory punishMenu;
+    private Inventory muteMenu;
 
     public MenuApi() {
         toPunish = HashBiMap.create();
@@ -39,6 +45,27 @@ public class MenuApi {
         punishMenu.setItem(4, getHead(target)); // Set the 4th item in the menu the head of the target player (who is being punished)
 
         return punishMenu;
+    }
+
+    public Inventory createMuteMenu(final OfflinePlayer target) {
+        /*
+        ----TARGET----
+        -1 MINUTE-1HOUR-1DAY-1MONTH-
+        ----1 YEAR----
+        --------PERMANENT
+         */
+
+        muteMenu = Bukkit.createInventory(null, 36, ChatColor.YELLOW + "Mute Menu");
+
+        muteMenu.setItem(4, getHeadWithInfo(target));
+
+        createMenuItem(muteMenu, 10,
+                format("&c1 Minute"), null,
+                format("&fMute " + target.getName()), format("&fFor 1 minute."),
+                null, null,
+                Material.TERRACOTTA);
+
+        return muteMenu;
     }
 
     public void createMenuItem(final Inventory inv, final int slot,
@@ -59,10 +86,28 @@ public class MenuApi {
         if (lore4 != null) lore.add(lore4);
 
         meta.setLore(lore);
-        for (final Enchantment enchantment : enchantments) meta.addEnchant(enchantment, 1, true);
+        // for (final Enchantment enchantment : enchantments) meta.addEnchant(enchantment, 1, true);
 
         item.setItemMeta(meta);
         inv.setItem(slot, item);
+    }
+
+    public ItemStack getHeadWithInfo(final OfflinePlayer p) {
+        ItemStack item = new ItemStack(Material.PLAYER_HEAD);
+        SkullMeta meta = (SkullMeta) item.getItemMeta();
+
+        meta.setOwningPlayer(p);
+        meta.setDisplayName(ChatColor.YELLOW + p.getName());
+
+        ArrayList<String> lore = new ArrayList<>();
+        lore.add(null);
+        lore.add(MessageUtils.format("&fName: " + p.getName()));
+        lore.add(MessageUtils.format("&fNickname: " + dataHandler.getNick(p.getUniqueId())));
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+
+        return item;
     }
 
     public ItemStack getHead(final OfflinePlayer p) {
@@ -81,6 +126,10 @@ public class MenuApi {
         meta.setOwningPlayer(p);
         item.setItemMeta(meta);
         return item;
+    }
+
+    private String format(final String s) {
+        return ChatColor.translateAlternateColorCodes('&', s);
     }
 
     public static BiMap<Player, OfflinePlayer> getToPunish() {

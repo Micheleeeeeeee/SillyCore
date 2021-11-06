@@ -12,6 +12,7 @@ import me.sillysock.SillyCore.Commands.Member.*;
 import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.RealnameCommand;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus.MenuApi;
+import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus.MenuHandler;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.Kick.KickCommand;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.Kick.KickListeners;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.Mute.MuteCommand;
@@ -108,6 +109,7 @@ public final class SillyCore
         registerEvent("Kick Listeners", new KickListeners());
         registerEvent("Data Handler Helper", new PlayerDataListener());
         registerEvent("Mute Listeners", new MuteListener());
+        registerEvent("Menu Handlers", new MenuHandler());
         registerCommand("vanish", new Vanish());
         registerCommand("memberlist", new MemberListCommand());
         registerCommand("nick", new NicknameCommand());
