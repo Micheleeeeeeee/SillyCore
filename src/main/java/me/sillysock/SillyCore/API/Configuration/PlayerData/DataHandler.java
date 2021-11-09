@@ -74,7 +74,7 @@ public class DataHandler {
         Bukkit.getScheduler().runTaskAsynchronously(core, () -> {
             try {
                 config.set("muted", true);
-                config.set("punishments.mutes.reason", reason);
+                config.set("punishments.muted.reason", reason);
 
                 config.save(player);
             } catch (IOException e) {

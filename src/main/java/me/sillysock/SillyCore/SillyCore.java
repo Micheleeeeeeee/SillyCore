@@ -44,7 +44,7 @@ public final class SillyCore
     private static Logger logger;
     private static PluginManager pluginManager;
     private static SillyCore instance;
-    private static NickManager nicknameManager;
+    //private static NickManager nicknameManager;
     private static File dataFolder;
     private static UpdateChecker checker;
     private static DataHandler dataHandler;
@@ -55,7 +55,7 @@ public final class SillyCore
         logger = getLogger();
         pluginManager = getServer().getPluginManager();
         instance = this;
-        nicknameManager = new NickManager();
+        //nicknameManager = new NickManager();
         dataFolder = getDataFolder();
         checker = new UpdateChecker(this, 97288);
         dataHandler = new DataHandler();
@@ -89,7 +89,6 @@ public final class SillyCore
         pluginManager = null;
         instance = null;
         dataFolder = null;
-        nicknameManager = null;
         Config.clear();
         System.gc(); // stackoverflow gave me two answers i don't know if this is a good idea
 
@@ -155,10 +154,6 @@ public final class SillyCore
 
     public static PluginManager getPluginManager() {
         return pluginManager;
-    }
-
-    public static NickManager getNicknameManager() {
-        return nicknameManager;
     }
 
     public static File getSillyDataFolder() {

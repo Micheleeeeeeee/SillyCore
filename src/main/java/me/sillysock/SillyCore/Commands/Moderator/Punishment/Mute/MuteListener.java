@@ -4,11 +4,14 @@ import com.google.common.collect.BiMap;
 import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.API.Configuration.PlayerData.DataHandler;
 import me.sillysock.SillyCore.SillyCore;
+import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class MuteListener implements Listener {
 
@@ -31,7 +34,7 @@ public class MuteListener implements Listener {
         target = typingReason.get(p);
         e.setCancelled(true);
 
-        handler.setMuted(target.getUniqueId(), true);
+        handler.mute(target.getUniqueId(), msg);
         if (target.isOnline()) target.getPlayer().sendMessage("You have been muted.");
         p.sendMessage(Lang.formatYouHaveKicked(target.getName()));
     }
