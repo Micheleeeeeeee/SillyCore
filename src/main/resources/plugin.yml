@@ -37,3 +37,5 @@ commands:
     description: Remove a player from the server.
   mute:
     description: Revoke a players rights to speech.
+  invview:
+    description: Inventory View
