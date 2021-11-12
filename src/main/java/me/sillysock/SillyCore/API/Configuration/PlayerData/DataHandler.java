@@ -25,6 +25,7 @@ public class DataHandler {
     }
 
     public void createPlayer(final UUID uuid) {
+        if (uuid == null) return;
         player = new File(dataFolder, "PlayerData/" + uuid + ".yml");
         try {
             player.createNewFile();
@@ -58,6 +59,7 @@ public class DataHandler {
 
     public String getFromPlayer(final UUID uuid,
                                 final String path) {
+        if (uuid == null) return "Invalid UUID";
         player = new File(dataFolder, "PlayerData/" + uuid + ".yml");
         return playerData.get(Bukkit.getPlayer(uuid)).getString(path);
     }
@@ -68,6 +70,7 @@ public class DataHandler {
 
     public void mute(final UUID uuid,
                      final String reason) {
+        if (uuid == null) return;
         player = new File(dataFolder, "PlayerData/" + uuid + ".yml");
         FileConfiguration config = YamlConfiguration.loadConfiguration(player);
 
@@ -85,6 +88,7 @@ public class DataHandler {
 
     public void setMuted(final UUID uuid,
                          final boolean muted) {
+        if (uuid == null) return;
         player = new File(dataFolder, "PlayerData/" + uuid + ".yml");
         FileConfiguration config = YamlConfiguration.loadConfiguration(player);
 
@@ -99,6 +103,7 @@ public class DataHandler {
     }
 
     public boolean isMuted(final UUID uuid) {
+        if (uuid == null) return false;
         final boolean[] out = new boolean[1];
         Bukkit.getScheduler().runTaskAsynchronously(core, () -> {
             out[0] = loadConfig(uuid).getBoolean("muted");
@@ -107,6 +112,7 @@ public class DataHandler {
     }
 
     public boolean isNicked(final UUID uuid) {
+        if (uuid == null) return false;
         final boolean[] out = new boolean[1];
         Bukkit.getScheduler().runTaskAsynchronously(core,
                 () -> out[0] = !loadConfig(uuid)
@@ -116,11 +122,13 @@ public class DataHandler {
     }
 
     public FileConfiguration loadConfig(final UUID uuid) {
+        if (uuid == null) return null;
         return YamlConfiguration.loadConfiguration(new File(dataFolder, "PlayerData/" + uuid + ".yml"));
     }
 
     public void setNick(final UUID uuid,
                         final String nick) {
+        if (uuid == null) return;
         player = new File(dataFolder, "PlayerData/" + uuid + ".yml");
         FileConfiguration config = YamlConfiguration.loadConfiguration(player);
         Bukkit.getPlayer(uuid).setDisplayName(nick);
@@ -136,6 +144,7 @@ public class DataHandler {
     }
 
     public String getNick(final UUID uuid) {
+        if (uuid == null) return "Invalid UUID";
         if (!isNicked(uuid)) return "Not Nicked";
         final String[] out = new String[1];
         Bukkit.getScheduler().runTaskAsynchronously(core, () -> out[0] = loadConfig(uuid)
