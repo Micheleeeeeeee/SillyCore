@@ -30,6 +30,41 @@ This is a bad commit message:
 - Message: 'Modify'
 - Message: 'a'
 
+## Reporting Bugs
+
+Think there's a bug? Great! Report it in the issues page.
+
+### Bug Reporting Guide 
+
+Before anything, check:
+- Is this bug worth reporting? 
+- Has this bug already been reported?
+
+### Bug Reporting Format
+
+Follow this format when reporting bugs:
+
+Title: Some commands are incorrectly sending messages, as well as some not using the lang.yml messages. 
+
+### Bug
+
+Plugin: 1.0-developer (NEVER say 'latest')
+Minecraft Version: 1.17.1 (NEVER say 'latest')
+Server: Paper (Server version also helpful)
+
+### What should happen:
+
+Commands should output their correct messages, by being grabbed from the lang.yml file.
+
+### What happens:
+
+Some of the messages either aren't formatted correctly, or simply not from the lang.yml.
+
+### How to reproduce:
+
+Use some of the commands in the plugin, (/invview and /tp are bugged iirc)
+
+
 ## Compiling
 
 The plugin currently uses the OpenJDK ARM Java 17 to compile with maven. To compile, `cd` into the root folder of the plugin
