@@ -19,8 +19,6 @@ public class BroadcastCommand implements CommandExecutor {
      * Developed by Silly Sock (c) 2021
      */
 
-    private StringBuilder builder;
-
     @Override
     public boolean onCommand(final CommandSender sender, final Command cmd,
                              final String label, final String[] args) {
