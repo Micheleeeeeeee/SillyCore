@@ -41,6 +41,7 @@ public class Lang {
     private static String teleportInvalidArg;
 
     private static String broadcast;
+    private static String broadcastNoArgs;
 
     private static String prefix;
 
@@ -77,6 +78,7 @@ public class Lang {
         setBanInvalidArg(lang.getString("ban_invalidarg"));
         setMuteInvalidArg(lang.getString("mute_invalidarg"));
         setBroadcast(lang.getString("broadcast"));
+        setBroadcastNoArgs(lang.getString("broadcast_invalidarg"));
     }
 
     public static void clear() {
@@ -272,6 +274,14 @@ public class Lang {
 
     public static void setTypePunishmentReason(String typePunishmentReason) {
         Lang.typePunishmentReason = MessageUtils.format(typePunishmentReason);
+    }
+
+    public static String getBroadcastNoArgs() {
+        return broadcastNoArgs;
+    }
+
+    public static void setBroadcastNoArgs(String broadcastNoArgs) {
+        Lang.broadcastNoArgs = MessageUtils.format(broadcastNoArgs);
     }
 
     public static String getKickInvalidArg() {
