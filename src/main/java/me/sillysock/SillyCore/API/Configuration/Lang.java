@@ -40,6 +40,8 @@ public class Lang {
     private static String teleportedToSelf;
     private static String teleportInvalidArg;
 
+    private static String broadcast;
+
     private static String prefix;
 
     public static void setValues() {
@@ -74,6 +76,7 @@ public class Lang {
         setTeleportInvalidArg(lang.getString("teleport_invalidarg"));
         setBanInvalidArg(lang.getString("ban_invalidarg"));
         setMuteInvalidArg(lang.getString("mute_invalidarg"));
+        setBroadcast(lang.getString("broadcast"));
     }
 
     public static void clear() {
@@ -317,6 +320,18 @@ public class Lang {
 
     public static void setMuteInvalidArg(String muteInvalidArg) {
         Lang.muteInvalidArg = muteInvalidArg;
+    }
+
+    public static String getBroadcast() {
+        return broadcast;
+    }
+
+    public static void setBroadcast(String broadcast) {
+        Lang.broadcast = broadcast;
+    }
+
+    public static String formatBroadcast(final String message) {
+        return MessageUtils.format(getBroadcast().replace("{broadcast}", message));
     }
 
     public static String formatRealnameSuccess(final String name, String nickName) {
