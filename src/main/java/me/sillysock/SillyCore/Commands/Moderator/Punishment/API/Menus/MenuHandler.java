@@ -1,6 +1,7 @@
 package me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus;
 
 import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.API.Configuration.PlayerData.DataHandler;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.PunishmentType;
@@ -22,6 +23,7 @@ public class MenuHandler implements Listener {
     private final BiMap<Player, PunishmentType> punishmentTypeBiMap = MenuApi.getPunishmentTypeBiMap();
     private final BiMap<Player, OfflinePlayer> toPunish = MenuApi.getToPunish();
     private final BiMap<Player, OfflinePlayer> typingReason = MuteCommand.getTypingReason();
+    private static final BiMap<Player, Long> expiries = HashBiMap.create();
 
     private final int SECOND = 1;
     private final int MINUTE = SECOND * 60;
@@ -76,6 +78,12 @@ public class MenuHandler implements Listener {
 
         // Tell the player to type the reason
         p.sendMessage(Lang.getTypePunishmentReason());
+        p.closeInventory();
+        expiries.put(p, EXPIRY);
         typingReason.put(p, target);
+    }
+
+    public static BiMap<Player, Long> getExpiries() {
+        return expiries;
     }
 }

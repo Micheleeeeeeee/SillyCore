@@ -69,15 +69,17 @@ public class DataHandler {
     }
 
     public void mute(final UUID uuid,
-                     final String reason) {
+                     final String reason,
+                     long expiry) {
         if (uuid == null) return;
         player = new File(dataFolder, "PlayerData/" + uuid + ".yml");
         FileConfiguration config = YamlConfiguration.loadConfiguration(player);
 
         Bukkit.getScheduler().runTaskAsynchronously(core, () -> {
             try {
-                config.set("muted", true);
+                config.set("punishments.muted.is_muted", true);
                 config.set("punishments.muted.reason", reason);
+                config.set("punishments.muted.expiry", expiry);
 
                 config.save(player);
             } catch (IOException e) {
@@ -105,9 +107,7 @@ public class DataHandler {
     public boolean isMuted(final UUID uuid) {
         if (uuid == null) return false;
         final boolean[] out = new boolean[1];
-        Bukkit.getScheduler().runTaskAsynchronously(core, () -> {
-            out[0] = loadConfig(uuid).getBoolean("muted");
-        });
+        out[0] = loadConfig(uuid).getBoolean("punishments.muted.is_muted");
         return out[0];
     }
 
