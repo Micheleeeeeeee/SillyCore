@@ -52,7 +52,7 @@ A bad bug report is one that:
 - Has no error logs
 - Not enough information
 
-## Feature REquest
+## Feature Request
 
 Think something should be added to the plugin? You can request it in the [issues](https://git.sillysock.codes/Sillysock/SillyCore/issues/) page with [this format.](https://git.sillysock.codes/Sillysock/SillyCore/issues/4)
 
