@@ -68,3 +68,5 @@ and type: `mvn clean install`. If there are any errors, report them in issues.
 
 ## License
 The plugin uses the MIT license and can be viewed [here.](https://git.sillysock.codes/Sillysock/SillyCore/src/branch/dev/test/temppunishment/LICENSE.md)
+
+Thank you for using SillyCore.
