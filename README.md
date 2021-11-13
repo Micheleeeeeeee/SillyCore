@@ -1,3 +1,3 @@
-# SillyCore - Core Plugin for Minecraft Server Administrators
+# MOVED
 
-- README TODO
+This plugin has been moved to my own host ([here](https://git.sillysock.codes/Sillysock/SillyCore))
