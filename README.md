@@ -64,8 +64,7 @@ Make sure that your feature:
 ## Compiling
 
 The plugin currently uses the OpenJDK ARM Java 17 to compile with maven. To compile, `cd` into the root folder of the plugin
-and type: `mvn clean install`
-If there are any errors please put them in issues.
+and type: `mvn clean install`. If there are any errors, report them in issues.
 
 ## License
 The plugin uses the MIT license and can be viewed [here.](https://git.sillysock.codes/Sillysock/SillyCore/src/branch/dev/test/temppunishment/LICENSE)
