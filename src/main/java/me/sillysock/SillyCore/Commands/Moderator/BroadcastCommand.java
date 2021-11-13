@@ -40,7 +40,7 @@ public class BroadcastCommand implements CommandExecutor {
             return true;
         }
 
-        String broadcast = String.join(" ");
+        String broadcast = String.join(" ", args);
         Bukkit.broadcastMessage(Lang.formatBroadcast(broadcast));
 
         return false;
