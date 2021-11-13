@@ -8,6 +8,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class BroadcastCommand implements CommandExecutor {
 
     /**
@@ -37,13 +40,8 @@ public class BroadcastCommand implements CommandExecutor {
             return true;
         }
 
-        builder = new StringBuilder();
-
-        for (final String s : args) {
-            builder.append(s);
-        }
-
-        Bukkit.broadcastMessage(Lang.formatBroadcast(builder.toString()));
+        String broadcast = String.join(" ");
+        Bukkit.broadcastMessage(Lang.formatBroadcast(broadcast));
 
         return false;
     }
