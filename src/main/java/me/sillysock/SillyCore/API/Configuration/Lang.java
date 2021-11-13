@@ -341,7 +341,7 @@ public class Lang {
     }
 
     public static String formatBroadcast(final String message) {
-        return MessageUtils.format(getBroadcast().replace("{broadcast}", message));
+        return MessageUtils.format(getBroadcast().replace("{announcement}", message));
     }
 
     public static String formatRealnameSuccess(final String name, String nickName) {

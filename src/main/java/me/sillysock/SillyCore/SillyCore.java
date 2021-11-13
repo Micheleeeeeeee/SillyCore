@@ -11,6 +11,7 @@ import me.sillysock.SillyCore.Commands.Administrator.Vanish;
 import me.sillysock.SillyCore.Commands.Member.*;
 import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.RealnameCommand;
+import me.sillysock.SillyCore.Commands.Moderator.BroadcastCommand;
 import me.sillysock.SillyCore.Commands.Moderator.InventoryViewCommand;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus.MenuApi;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus.MenuHandler;
@@ -123,6 +124,7 @@ public final class SillyCore
         registerCommand("tpstest", new FloodFileConfigurations());
         registerCommand("mute", new MuteCommand());
         registerCommand("invview", new InventoryViewCommand());
+        registerCommand("broadcast", new BroadcastCommand());
     }
 
     private void registerCommand(final String name,

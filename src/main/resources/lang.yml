@@ -63,4 +63,4 @@ muted: '&aYou are not permitted to speak as you have been muted.'
 
 type_punishment_reason: '&aPlease type the reason for punishment in chat.'
 broadcast: '&c&lANNOUNCEMENT: &f{announcement}'
-broadcast_invalidarg: '&c&lUsage: /broadcast [message]'
+broadcast_invalidarg: '&cUsage: /broadcast [message]'
