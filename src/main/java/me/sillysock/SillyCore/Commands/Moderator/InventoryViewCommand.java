@@ -1,6 +1,7 @@
 package me.sillysock.SillyCore.Commands.Moderator;
 
 import me.sillysock.SillyCore.API.Configuration.Lang;
+import me.sillysock.SillyCore.API.Configuration.Permissions;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
@@ -22,7 +23,7 @@ public class InventoryViewCommand implements CommandExecutor {
         }
 
         p = (Player) sender;
-        if (!p.hasPermission("sillycore.moderator.invview")) {
+        if (!p.hasPermission(Permissions.getInventoryView())) {
             p.sendMessage(Lang.getNoPermission());
             return true;
         }

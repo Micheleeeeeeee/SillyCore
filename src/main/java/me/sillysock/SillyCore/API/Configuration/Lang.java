@@ -44,6 +44,8 @@ public class Lang {
     private static String broadcast;
     private static String broadcastNoArgs;
 
+    private static String invviewInvalidArgs;
+
     private static String prefix;
 
     public static void setValues() {
@@ -80,6 +82,7 @@ public class Lang {
         setMuteInvalidArg(lang.getString("mute_invalidarg"));
         setBroadcast(lang.getString("broadcast"));
         setBroadcastNoArgs(lang.getString("broadcast_invalidarg"));
+        setInvviewInvalidArgs(lang.getString("invview_invalidarg"));
     }
 
     public static void clear() {
@@ -339,6 +342,14 @@ public class Lang {
 
     public static void setBroadcast(String broadcast) {
         Lang.broadcast = broadcast;
+    }
+
+    public static String getInvviewInvalidArgs() {
+        return invviewInvalidArgs;
+    }
+
+    public static void setInvviewInvalidArgs(String invviewInvalidArgs) {
+        Lang.invviewInvalidArgs = invviewInvalidArgs;
     }
 
     public static String formatBroadcast(final String message) {

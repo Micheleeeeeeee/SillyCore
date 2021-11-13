@@ -38,6 +38,8 @@ public class Permissions {
     private static String fly;
     private static String teleport;
 
+    private static String inventoryView;
+
 
     // Final Variables (don't need to be refreshed)
     private static final File dataFolder = SillyCore.getSillyDataFolder();
@@ -65,6 +67,7 @@ public class Permissions {
         setFly(get("fly"));
         setSeeVanished(get("see_vanished"));
         setTeleport(get("teleport"));
+        setInventoryView(get("invview"));
     }
 
     public static void clear() {
@@ -247,5 +250,13 @@ public class Permissions {
 
     public static void setTeleport(String teleport) {
         Permissions.teleport = teleport;
+    }
+
+    public static String getInventoryView() {
+        return inventoryView;
+    }
+
+    public static void setInventoryView(String inventoryView) {
+        Permissions.inventoryView = inventoryView;
     }
 }

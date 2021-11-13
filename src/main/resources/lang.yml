@@ -24,6 +24,8 @@ kick_invalidarg: '&cUsage: /kick [player]'
 mute_invalidarg: '&cUsage: /mute [player]'
 ban_invalidarg: '&cUsage: /ban [player]'
 teleport_invalidarg: '&cUsage: /teleport [player] OR [player] [other-player]'
+invview_invalidarg: '&cUsage: /invview [player]'
+broadcast_invalidarg: '&cUsage: /broadcast [message]'
 
 # Commands
 # Regular output
@@ -63,4 +65,3 @@ muted: '&aYou are not permitted to speak as you have been muted.'
 
 type_punishment_reason: '&aPlease type the reason for punishment in chat.'
 broadcast: '&c&lANNOUNCEMENT: &f{announcement}'
-broadcast_invalidarg: '&cUsage: /broadcast [message]'
