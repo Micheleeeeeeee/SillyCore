@@ -12,13 +12,13 @@ commands:
   staff:
     description: Staff GUI.
   vanish:
-    description: dude.
+    description: Hide yourself from players.
   memberlist:
     description: Lists all players online.
   nick:
-    description: test
+    description: Nickname yourself.
   realname:
-    description: balls
+    description: Find the real name of a nicked player.
   server:
     description: Manage the server.
   feed:
@@ -39,3 +39,5 @@ commands:
     description: Revoke a players rights to speech.
   invview:
     description: Inventory View
+  broadcast:
+    description: Broadcast a message to the server.

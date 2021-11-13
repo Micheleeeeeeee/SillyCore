@@ -34,3 +34,5 @@ feed: 'sillycore.misc.feed'
 heal: 'sillycore.misc.heal'
 fly: 'sillycore.misc.fly'
 teleport: 'sillycore.misc.teleport'
+
+invview: 'sillycore.misc.invview'

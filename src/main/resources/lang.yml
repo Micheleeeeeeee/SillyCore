@@ -62,3 +62,4 @@ muted: '&aYou are not permitted to speak as you have been muted.'
 # Other
 
 type_punishment_reason: '&aPlease type the reason for punishment in chat.'
+broadcast: '&c&lANNOUNCEMENT: &f{announcement}'
