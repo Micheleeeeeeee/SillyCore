@@ -9,9 +9,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Locale;
+
 public class GamemodeCommand implements CommandExecutor {
 
     private GameMode gamemode;
+    private Player target;
 
     @Override
     public boolean onCommand(CommandSender sender, final Command cmd,
@@ -27,22 +30,33 @@ public class GamemodeCommand implements CommandExecutor {
             return true;
         }
 
-        gamemode = p.getGameMode();
-        if (gamemode.equals(GameMode.SURVIVAL)) {
-            p.setGameMode(GameMode.CREATIVE);
-            p.sendMessage(MessageUtils.format("Your gamemode has been set to &a&lCREATIVE."));
+        if (args.length == 0) {
+            gamemode = p.getGameMode();
+            if (gamemode.equals(GameMode.SURVIVAL)) {
+                p.setGameMode(GameMode.CREATIVE);
+                p.sendMessage(MessageUtils.format("Your gamemode has been set to &a&lCREATIVE."));
+            }
+            if (gamemode.equals(GameMode.CREATIVE)) {
+                p.setGameMode(GameMode.SURVIVAL);
+                p.sendMessage(MessageUtils.format("Your gamemode has been set to &c&lSURVIVAL."));
+            }
+            if (gamemode.equals(GameMode.ADVENTURE)) {
+                p.setGameMode(GameMode.SURVIVAL);
+                p.sendMessage(MessageUtils.format("Your gamemode has been set to &c&lSURVIVAL."));
+            }
+            if (gamemode.equals(GameMode.SPECTATOR)) {
+                p.setGameMode(GameMode.CREATIVE);
+                p.sendMessage(MessageUtils.format("Your gamemode has been set to &a&lCREATIVE."));
+            }
+
+            return true;
         }
-        if (gamemode.equals(GameMode.CREATIVE)) {
-            p.setGameMode(GameMode.SURVIVAL);
-            p.sendMessage(MessageUtils.format("Your gamemode has been set to &c&lSURVIVAL."));
-        }
-        if (gamemode.equals(GameMode.ADVENTURE)) {
-            p.setGameMode(GameMode.SURVIVAL);
-            p.sendMessage(MessageUtils.format("Your gamemode has been set to &c&lSURVIVAL."));
-        }
-        if (gamemode.equals(GameMode.SPECTATOR)) {
-            p.setGameMode(GameMode.CREATIVE);
-            p.sendMessage(MessageUtils.format("Your gamemode has been set to &a&lCREATIVE."));
+
+        try {
+            gamemode = GameMode.valueOf(args[0]);
+        } catch (IllegalArgumentException e) {
+            p.sendMessage("Invalid gamemode.");
+
         }
 
         return true;

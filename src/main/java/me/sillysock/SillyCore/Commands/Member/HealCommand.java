@@ -33,6 +33,8 @@ public class HealCommand implements CommandExecutor {
             p.setHealthScale(20);
             p.setHealth(20);
             p.setFoodLevel(20);
+            p.setFireTicks(0);
+            p.setVisualFire(false);
             p.sendMessage("You have been healed. (todo in lang)");
 
             return true;
@@ -47,6 +49,8 @@ public class HealCommand implements CommandExecutor {
         target.setHealth(20);
         target.setHealthScale(20);
         target.setFoodLevel(20);
+        target.setFireTicks(0);
+        target.setVisualFire(false);
         target.sendMessage("You have been healed. (todo in lang)");
         p.sendMessage("You have healed %s", target.getName());
 

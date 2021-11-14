@@ -101,10 +101,26 @@ commands:
   # Usage: /broadcast [message]
   broadcast:
     description: Broadcast a message to the server.
-    aliases: [announce]
+    aliases: [ announce ]
 
   # The /gamemode command is used to change a players gamemode.
   # Usage: /gamemode | [gamemode] | [player] [gamemode]
   gamemode:
     description: Change a players gamemode.
-    aliases: [gm]
+    aliases: [ gm ]
+
+  gamemodesurvival:
+    description: Change a players gamemode to survival.
+    aliases: [ gms, gmsurvival ]
+
+  gamemodespectator:
+    description: Change a players gamemode to spectator.
+    aliases: [ gmsp, gmspec, gmspectator ]
+
+  gamemodecreative:
+    description: Change a players gamemode to creative.
+    aliases: [ gmc, gmcreative ]
+
+  gamemodeadventure:
+    description: Change a players gamemode to adventure.
+    aliases: [ gma, gmadventure ]
