@@ -16,6 +16,5 @@ public class PlayerDataListener implements Listener {
     public void PlayerDataListener(final PlayerJoinEvent e) {
         final UUID uuid = e.getPlayer().getUniqueId();
         if (!handler.playerExists(uuid)) handler.createPlayer(uuid);
-        if (handler.isNicked(uuid)) Bukkit.broadcastMessage("They're nicked.");
     }
 }

@@ -28,11 +28,11 @@ public class KickListeners implements Listener {
         e.setCancelled(true);
 
         // The below code is to kick a player while not being asynchronous.
-        Bukkit.getScheduler().runTask(SillyCore.getInstance(), new Runnable() {
-            public void run() {
-                p.kickPlayer(MessageUtils.format(msg));
-            }
+        Bukkit.getScheduler().runTask(SillyCore.getInstance(), () -> {
+            p.kickPlayer(MessageUtils.format(msg));
+            p.sendMessage(Lang.formatYouHaveKicked(target.getName()));
         });
+
         p.sendMessage(Lang.formatYouHaveKicked(target.getName()));
     }
 }

@@ -1,6 +1,5 @@
 package me.sillysock.SillyCore.API;
 
-import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -10,22 +9,7 @@ import java.net.URL;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
-public class UpdateChecker {
-
-    /**
-     * Most of this code has been stolen from https://www.spigotmc.org/wiki/creating-an-update-checker-that-checks-for-updates/.
-     *
-     *
-     * Thank you to whoever made it.
-     */
-
-    private final JavaPlugin plugin;
-    private final int resourceId;
-
-    public UpdateChecker(final JavaPlugin plugin, final int resourceId) {
-        this.plugin = plugin;
-        this.resourceId = resourceId;
-    }
+public record UpdateChecker(JavaPlugin plugin, int resourceId) {
 
     public void getVersion(final Consumer<String> consumer) {
         Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {

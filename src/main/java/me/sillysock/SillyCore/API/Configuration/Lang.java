@@ -32,10 +32,18 @@ public class Lang {
     private static String youHaveKicked;
     private static String typePunishmentReason;
     private static String kickInvalidArg;
+    private static String banInvalidArg;
+    private static String warnInvalidArg;
+    private static String muteInvalidArg;
 
     private static String teleported;
     private static String teleportedToSelf;
     private static String teleportInvalidArg;
+
+    private static String broadcast;
+    private static String broadcastNoArgs;
+
+    private static String invviewInvalidArgs;
 
     private static String prefix;
 
@@ -69,6 +77,11 @@ public class Lang {
         setTeleported(lang.getString("teleported"));
         setTeleportedToSelf(lang.getString("teleported_to_self"));
         setTeleportInvalidArg(lang.getString("teleport_invalidarg"));
+        setBanInvalidArg(lang.getString("ban_invalidarg"));
+        setMuteInvalidArg(lang.getString("mute_invalidarg"));
+        setBroadcast(lang.getString("broadcast"));
+        setBroadcastNoArgs(lang.getString("broadcast_invalidarg"));
+        setInvviewInvalidArgs(lang.getString("invview_invalidarg"));
     }
 
     public static void clear() {
@@ -266,6 +279,14 @@ public class Lang {
         Lang.typePunishmentReason = MessageUtils.format(typePunishmentReason);
     }
 
+    public static String getBroadcastNoArgs() {
+        return broadcastNoArgs;
+    }
+
+    public static void setBroadcastNoArgs(String broadcastNoArgs) {
+        Lang.broadcastNoArgs = MessageUtils.format(broadcastNoArgs);
+    }
+
     public static String getKickInvalidArg() {
         return kickInvalidArg;
     }
@@ -288,6 +309,50 @@ public class Lang {
 
     public static void setTeleportedToSelf(String teleportedToSelf) {
         Lang.teleportedToSelf = MessageUtils.format(teleportedToSelf);
+    }
+
+    public static String getBanInvalidArg() {
+        return banInvalidArg;
+    }
+
+    public static void setBanInvalidArg(String banInvalidArg) {
+        Lang.banInvalidArg = banInvalidArg;
+    }
+
+    public static String getWarnInvalidArg() {
+        return warnInvalidArg;
+    }
+
+    public static void setWarnInvalidArg(String warnInvalidArg) {
+        Lang.warnInvalidArg = warnInvalidArg;
+    }
+
+    public static String getMuteInvalidArg() {
+        return muteInvalidArg;
+    }
+
+    public static void setMuteInvalidArg(String muteInvalidArg) {
+        Lang.muteInvalidArg = muteInvalidArg;
+    }
+
+    public static String getBroadcast() {
+        return broadcast;
+    }
+
+    public static void setBroadcast(String broadcast) {
+        Lang.broadcast = broadcast;
+    }
+
+    public static String getInvviewInvalidArgs() {
+        return invviewInvalidArgs;
+    }
+
+    public static void setInvviewInvalidArgs(String invviewInvalidArgs) {
+        Lang.invviewInvalidArgs = invviewInvalidArgs;
+    }
+
+    public static String formatBroadcast(final String message) {
+        return MessageUtils.format(getBroadcast().replace("{announcement}", message));
     }
 
     public static String formatRealnameSuccess(final String name, String nickName) {

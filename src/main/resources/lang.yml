@@ -21,7 +21,11 @@ quit: '&7[&c-&7] {player_name}'
 nick_invalidarg: '&cUsage: /nick {reset | player} nickname\nUsage: /nick {reset | nickname}'
 realname_invalidarg: '&cUsage: /realname [player]'
 kick_invalidarg: '&cUsage: /kick [player]'
+mute_invalidarg: '&cUsage: /mute [player]'
+ban_invalidarg: '&cUsage: /ban [player]'
 teleport_invalidarg: '&cUsage: /teleport [player] OR [player] [other-player]'
+invview_invalidarg: '&cUsage: /invview [player]'
+broadcast_invalidarg: '&cUsage: /broadcast [message]'
 
 # Commands
 # Regular output
@@ -39,6 +43,7 @@ kicked: '&aYou have kicked {name}'
 
 teleported: '&aYou have teleported to {name}'
 teleported_to_self: '&aYou have teleported {name} to you.'
+tp_all: '&aYou have teleported &c&leveryone &ato you.'
 
 # Join Messages (error)
 
@@ -59,3 +64,4 @@ muted: '&aYou are not permitted to speak as you have been muted.'
 # Other
 
 type_punishment_reason: '&aPlease type the reason for punishment in chat.'
+broadcast: '&c&lANNOUNCEMENT: &f{announcement}'

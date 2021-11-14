@@ -4,29 +4,123 @@ api-version: 1.17
 name: SillyCore
 author: Sillysockk
 
+###                     ###
+#  Command Registration   #
+###                     ###
 commands:
+
+  # The /kick command is used for punishing players by 'kicking' them from the server,
+  # however they can join instantly.
+  # Usage: /kick [player]
   kick:
     description: Punish players by removing them from the server.
+
+  # The /dev command should not be used by the users of this plugin, as it is mainly used
+  # by Silly Sock for development testing.
+  # Usage: none
   dev:
     description: Developer Commands.
+
+  # The /staff command will be used for a custom GUI where you can manage the server,
+  # however as of 1.0-Developer it has not been implemented yet.
+  # Usage: none
   staff:
     description: Staff GUI.
+
+  # The /vanish command is used for moderators to hide themselves from normal players,
+  # generally is it advised to use it for moderation purposes (i.e spectating a player)
+  # Usage: none
   vanish:
-    description: dude.
+    description: Hide yourself from players.
+
+  # The /memberlist command shows a list of players online.
+  # Usage: none
   memberlist:
     description: Lists all players online.
+
+  # The /nick command is used to change your nickname.
+  # Usage: /nick [nick] | /nick reset
   nick:
-    description: test
+    description: Nickname yourself.
+
+  # The /realname command is used to find the name of a nicknamed player.
+  # Usage: /realname [player]
   realname:
-    description: balls
+    description: Find the real name of a nicked player.
+
+  # The /server command is used to manage the server itself, i.e reload the plugin config,
+  # Kick all players, etc.
+  # Usage: /server rlconfig
   server:
     description: Manage the server.
+
+  # The /feed command is used to set your food level, or another players to 20.
+  # Usage: /feed [player] | /feed
   feed:
     description: Feed yourself or another player.
+
+  # The /heal command sets both your health and food level, or another players to max.
+  # Usage: /heal [player] | /heal
   heal:
     description: Heal yourself or another player.
+
+  # The /fly command is used to enable flight for yourself or another player.
+  # Usage: /fly | /fly [player]
   fly:
     description: Toggle flight for yourself or another player.
+
+  # The /teleport command is used to teleport yourself, or two other players.
+  # Usage: /teleport [player] | [player] [other] | [other] [other]
   teleport:
     description: Teleport you, or another player to someone.
     aliases: [tp]
+
+  # Developer command
+  # Usage: none
+  tpstest:
+    description: Unless you're silisoc don't run this.
+
+  ### Punishment ###
+
+  # The /ban command is used to temporarily, or permanently ban someone from the server.
+  # Usage: /ban [player]
+  ban:
+    description: Remove a player from the server.
+
+  # The /mute command is used to revoke a players permissions to speak temporarily or permanently.
+  # Usage: /mute [player]
+  mute:
+    description: Revoke a players rights to speech.
+
+  # The /invview command is used to view a players inventory and modify it.
+  # Usage: /invview [player]
+  invview:
+    description: Inventory View
+
+  # The /broadcast command is used to broadcast a message to the entire server.
+  # Usage: /broadcast [message]
+  broadcast:
+    description: Broadcast a message to the server.
+    aliases: [ announce ]
+
+  # The /gamemode command is used to change a players gamemode.
+  # Usage: /gamemode | [gamemode] | [player] [gamemode]
+  gamemode:
+    description: Change a players gamemode.
+    aliases: [ gm ]
+
+  gamemodesurvival:
+    description: Change a players gamemode to survival.
+    aliases: [ gms, gmsurvival ]
+
+  gamemodespectator:
+    description: Change a players gamemode to spectator.
+    aliases: [ gmsp, gmspec, gmspectator ]
+
+  gamemodecreative:
+    description: Change a players gamemode to creative.
+    aliases: [ gmc, gmcreative ]
+
+  gamemodeadventure:
+    description: Change a players gamemode to adventure.
+    aliases: [ gma, gmadventure ]

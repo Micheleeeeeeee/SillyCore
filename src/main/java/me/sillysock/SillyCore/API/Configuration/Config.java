@@ -2,13 +2,12 @@ package me.sillysock.SillyCore.API.Configuration;
 
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.configuration.file.FileConfiguration;
-import java.io.File;
+
 import java.util.List;
 
 public final class Config {
 
     private static FileConfiguration config;
-    private static File playerDataFolder;
 
     private static List<String> nicknameBadWords;
     private static String storage;

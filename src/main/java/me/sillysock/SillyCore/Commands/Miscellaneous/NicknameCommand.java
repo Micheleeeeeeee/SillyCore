@@ -6,6 +6,7 @@ import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.API.Configuration.Permissions;
 import me.sillysock.SillyCore.API.Configuration.PlayerData.DataHandler;
 import me.sillysock.SillyCore.SillyCore;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -19,7 +20,6 @@ import java.util.logging.Level;
 public class NicknameCommand
         implements CommandExecutor {
 
-    BiMap<Player, String> nicknamedPlayers = SillyCore.getNicknameManager().getNicknamedPlayers();
     private static final DataHandler handler = SillyCore.getDataHandler();
 
     @Override public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -34,17 +34,17 @@ public class NicknameCommand
             return true;
         }
 
-        String name = p.getName();
+        final String name = p.getName();
         final UUID uuid = p.getUniqueId();
 
-
-        if (args.length < 0x1) { // i was bored (0x1 = 1 as 16^0 = 1)
+        if (args.length < 1) { // i was bored (0x1 = 1 as 16^0 = 1)
             p.sendMessage(Lang.getNicknameInsufficientArguments());
             return true;
         }
 
         String nickname = args[0];
         if (nickname.equalsIgnoreCase("reset")) {
+            Bukkit.broadcastMessage(String.valueOf(handler.isNicked(uuid)));
             if (handler.isNicked(uuid)) {
                 p.setDisplayName(name);
                 p.setPlayerListName(name);

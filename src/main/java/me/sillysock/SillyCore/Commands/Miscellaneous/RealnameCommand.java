@@ -2,7 +2,10 @@ package me.sillysock.SillyCore.Commands.Miscellaneous;
 
 import com.google.common.collect.BiMap;
 import me.sillysock.SillyCore.API.Configuration.Lang;
+import me.sillysock.SillyCore.API.Configuration.PlayerData.DataHandler;
 import me.sillysock.SillyCore.SillyCore;
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,8 +18,8 @@ public class RealnameCommand
         implements CommandExecutor {
 
     Player p;
-    Player target;
-    BiMap<Player, String> nickedPlayers = SillyCore.getNicknameManager().getNicknamedPlayers();
+    OfflinePlayer target;
+    private final DataHandler handler = SillyCore.getDataHandler();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -32,14 +35,19 @@ public class RealnameCommand
             return true;
         }
 
-        target = nickedPlayers.inverse().get(args[0]);
+        target = Bukkit.getOfflinePlayer(args[0]);
 
         if (target == null) {
             p.sendMessage(Lang.getNotNicked());
             return true;
         }
 
-        p.sendMessage(Lang.formatRealnameSuccess(target.getName(), target.getDisplayName()));
+        if (!handler.isNicked(target.getUniqueId())) {
+            p.sendMessage(Lang.getNotNicked());
+            return true;
+        }
+
+        p.sendMessage(Lang.formatRealnameSuccess(target.getName(), target.getPlayer().getDisplayName()));
 
         return false;
     }
