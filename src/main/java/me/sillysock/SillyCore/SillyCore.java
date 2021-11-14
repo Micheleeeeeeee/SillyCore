@@ -13,6 +13,7 @@ import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.RealnameCommand;
 import me.sillysock.SillyCore.Commands.Moderator.BroadcastCommand;
 import me.sillysock.SillyCore.Commands.Moderator.InventoryViewCommand;
+import me.sillysock.SillyCore.Commands.Moderator.Misc.Gamemode.GamemodeCommand;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus.MenuApi;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus.MenuHandler;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.Kick.KickCommand;

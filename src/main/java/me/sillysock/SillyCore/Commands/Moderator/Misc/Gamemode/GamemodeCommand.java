@@ -37,7 +37,7 @@ public class GamemodeCommand implements CommandExecutor {
             p.sendMessage(MessageUtils.format("Your gamemode has been set to &c&lSURVIVAL."));
         }
         if (gamemode.equals(GameMode.ADVENTURE)) {
-            p.setGameMode(GameMode.ADVENTURE);
+            p.setGameMode(GameMode.SURVIVAL);
             p.sendMessage(MessageUtils.format("Your gamemode has been set to &c&lSURVIVAL."));
         }
         if (gamemode.equals(GameMode.SPECTATOR)) {
