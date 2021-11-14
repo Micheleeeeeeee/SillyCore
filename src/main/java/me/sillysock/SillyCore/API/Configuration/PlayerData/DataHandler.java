@@ -37,7 +37,6 @@ public class DataHandler {
         Bukkit.broadcastMessage(String.valueOf(fileConfiguration));
         fileConfiguration.set("nick", "");
         fileConfiguration.set("name", Bukkit.getPlayer(uuid).getName());
-        fileConfiguration.set("muted", false);
         fileConfiguration.set("vanished", false);
 
         fileConfiguration.set("punishments.muted.is_muted", false);
@@ -106,9 +105,13 @@ public class DataHandler {
 
     public boolean isMuted(final UUID uuid) {
         if (uuid == null) return false;
-        final boolean[] out = new boolean[1];
-        out[0] = loadConfig(uuid).getBoolean("punishments.muted.is_muted");
-        return out[0];
+        return loadConfig(uuid).getBoolean("punishments.muted.is_muted");
+    }
+
+    public String getMuteReason(final UUID uuid) {
+        if (uuid == null) return "Invalid UUID";
+        if (!isMuted(uuid)) return "Not Muted";
+        return loadConfig(uuid).getString("punishments.muted.reason");
     }
 
     public boolean isNicked(final UUID uuid) {
