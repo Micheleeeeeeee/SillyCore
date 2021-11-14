@@ -57,7 +57,7 @@ public class GamemodeCommand implements CommandExecutor {
         return false;
     }
 
-    private void changeGamemode(final Player p, final String mode,) {
+    private void changeGamemode(final Player p, final String mode) {
         switch (mode.toLowerCase(Locale.ENGLISH)) {
             case "survival":
                 p.setGameMode(GameMode.SURVIVAL);
