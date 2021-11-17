@@ -28,8 +28,13 @@ public class FunCommand implements CommandExecutor {
             return true;
         }
 
-        if (args.length == 0 || args.length == 1 && !args[1].equalsIgnoreCase("confirm")) {
-            p.sendMessage(MessageUtils.format("&cUsage: /fun confirm"));
+        if (args.length == 0) {
+            p.sendMessage(MessageUtils.format("&cType &a/fun confirm&c to run this command."));
+            return true;
+        }
+
+        if (!args[1].equalsIgnoreCase("confirm")) {
+            p.sendMessage(MessageUtils.format("&cType &a/fun confirm&c to run this command."));
             return true;
         }
 
