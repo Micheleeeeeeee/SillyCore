@@ -13,3 +13,4 @@ nickname_bad_words:
 
 disable_op: false # True to enable op
 
+nick_max_len: 16

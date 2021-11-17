@@ -36,3 +36,5 @@ fly: 'sillycore.misc.fly'
 teleport: 'sillycore.misc.teleport'
 
 invview: 'sillycore.misc.invview'
+
+# INFO: 'sillycore.misc.fun' IS A HARDCODED PERMISSION.
