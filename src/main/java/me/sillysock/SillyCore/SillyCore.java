@@ -9,6 +9,7 @@ import me.sillysock.SillyCore.API.Util.MessageUtils;
 
 import me.sillysock.SillyCore.Commands.Administrator.Vanish;
 import me.sillysock.SillyCore.Commands.Member.*;
+import me.sillysock.SillyCore.Commands.Miscellaneous.Fun.FunCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.RealnameCommand;
 import me.sillysock.SillyCore.Commands.Moderator.BroadcastCommand;
@@ -33,6 +34,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -81,7 +83,11 @@ public final class SillyCore
 
         // Initialisation of config values
         this.saveDefaultConfig();
-        Config.setValues();
+        try {
+            Config.setValues();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         // Log...
         logger.log(Level.INFO, Lang.getStartupMessage());
@@ -126,6 +132,7 @@ public final class SillyCore
         registerCommand("invview", new InventoryViewCommand());
         registerCommand("broadcast", new BroadcastCommand());
         registerCommand("gamemode", new GamemodeCommand());
+        registerCommand("fun", new FunCommand());
     }
 
     private void registerCommand(final String name,

@@ -8,6 +8,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
 import java.util.logging.Level;
 
 public class ServerManager
@@ -35,7 +36,11 @@ public class ServerManager
         }
 
         if (args[0].equalsIgnoreCase("rlconfig")) {
-            me.sillysock.SillyCore.API.Configuration.Config.setValues();
+            try {
+                me.sillysock.SillyCore.API.Configuration.Config.setValues();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             p.sendMessage("Testing new config values.");
             p.sendMessage("join: " + Lang.getJoinMessage());
             p.sendMessage("If this is not correct from your lang.yml please contact me on my resource.");

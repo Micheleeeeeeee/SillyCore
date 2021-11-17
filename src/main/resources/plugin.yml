@@ -124,3 +124,6 @@ commands:
   gamemodeadventure:
     description: Change a players gamemode to adventure.
     aliases: [ gma, gmadventure ]
+
+  fun:
+    description: Fun Command!
