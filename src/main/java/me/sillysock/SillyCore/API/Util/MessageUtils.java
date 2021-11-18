@@ -10,6 +10,8 @@ public class MessageUtils {
     }
 
     public static void sendToAll(final String msg) {
-        Bukkit.getOnlinePlayers().forEach(player -> player.sendMessage(msg));
+        Bukkit
+                .getOnlinePlayers()
+                .forEach(player -> player.sendMessage(msg));
     }
 }
