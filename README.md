@@ -6,7 +6,7 @@ SillyCore is a plugin for Minecraft servers running Spigot/forks of spigot (i.e 
 - Fully custom punishment system, with GUIs
 - A vast range of commands, for all your server needs. 
 
-## Compatability
+## Compatibility
 
 SillyCore has been tested on Minecraft 1.17 and 1.17.1.
 
