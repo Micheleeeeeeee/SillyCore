@@ -14,4 +14,5 @@ public class MessageUtils {
                 .getOnlinePlayers()
                 .forEach(player -> player.sendMessage(msg));
     }
+
 }
