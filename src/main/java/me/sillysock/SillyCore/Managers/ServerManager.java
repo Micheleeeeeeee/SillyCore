@@ -1,5 +1,6 @@
 package me.sillysock.SillyCore.Managers;
 
+import me.sillysock.SillyCore.API.Configuration.Config;
 import me.sillysock.SillyCore.API.Configuration.Lang;
 import me.sillysock.SillyCore.API.Configuration.Permissions;
 import me.sillysock.SillyCore.SillyCore;
@@ -37,7 +38,7 @@ public class ServerManager
 
         if (args[0].equalsIgnoreCase("rlconfig")) {
             try {
-                me.sillysock.SillyCore.API.Configuration.Config.setValues();
+                Config.setValues();
             } catch (IOException e) {
                 e.printStackTrace();
             }
