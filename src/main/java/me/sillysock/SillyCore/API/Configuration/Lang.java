@@ -86,6 +86,8 @@ public class Lang {
         setBroadcast(lang.getString("broadcast"));
         setBroadcastNoArgs(lang.getString("broadcast_invalidarg"));
         setInvviewInvalidArgs(lang.getString("invview_invalidarg"));
+        setGamemode(lang.getString("gamemode"));
+        setGamemodeOther(lang.getString("gamemode_other"));
     }
 
     public static void clear() {
