@@ -14,7 +14,7 @@ import me.sillysock.SillyCore.Commands.Miscellaneous.NicknameCommand;
 import me.sillysock.SillyCore.Commands.Miscellaneous.RealnameCommand;
 import me.sillysock.SillyCore.Commands.Moderator.BroadcastCommand;
 import me.sillysock.SillyCore.Commands.Moderator.InventoryViewCommand;
-import me.sillysock.SillyCore.Commands.Moderator.Misc.Gamemode.GamemodeCommand;
+import me.sillysock.SillyCore.Commands.Moderator.Misc.Gamemode.*;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus.MenuApi;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.API.Menus.MenuHandler;
 import me.sillysock.SillyCore.Commands.Moderator.Punishment.Kick.KickCommand;
@@ -117,10 +117,16 @@ public final class SillyCore
         registerEvent("Data Handler Helper", new PlayerDataListener());
         registerEvent("Mute Listeners", new MuteListener());
         registerEvent("Menu Handlers", new MenuHandler());
+
         registerCommand("vanish", new Vanish());
         registerCommand("memberlist", new MemberListCommand());
+
+        // Nickname
+
         registerCommand("nick", new NicknameCommand());
         registerCommand("realname", new RealnameCommand());
+
+
         registerCommand("server", new ServerManager());
         registerCommand("feed", new FeedCommand());
         registerCommand("heal", new HealCommand());
@@ -131,7 +137,17 @@ public final class SillyCore
         registerCommand("mute", new MuteCommand());
         registerCommand("invview", new InventoryViewCommand());
         registerCommand("broadcast", new BroadcastCommand());
+
+        // GAMEMODE
+
         registerCommand("gamemode", new GamemodeCommand());
+        registerCommand("gamemodesurvival", new GamemodeSurvivalCommand());
+        registerCommand("gamemodecreative", new GamemodeCreativeCommand());
+        registerCommand("gamemodespectator", new GamemodeSpectatorCommand());
+        registerCommand("gamemodeadventure", new GamemodeAdventureCommand());
+
+        // MISCELLANEOUS
+
         registerCommand("fun", new FunCommand());
     }
 
