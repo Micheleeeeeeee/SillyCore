@@ -1,8 +1,10 @@
 package me.sillysock.SillyCore.Commands.Moderator.Misc.Gamemode;
 
 import me.sillysock.SillyCore.API.Configuration.Lang;
+import me.sillysock.SillyCore.API.Configuration.Permissions;
 import me.sillysock.SillyCore.API.Util.MessageUtils;
 import me.sillysock.SillyCore.SillyCore;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,7 +27,7 @@ public class GamemodeCommand implements CommandExecutor {
             return true;
         }
 
-        if (!p.hasPermission("sillycore.moderator.gamemode.gm")) {
+        if (!p.hasPermission(Permissions.getGamemode())) {
             p.sendMessage(Lang.getNoPermission());
             return true;
         }
@@ -34,29 +36,35 @@ public class GamemodeCommand implements CommandExecutor {
             gamemode = p.getGameMode();
             if (gamemode.equals(GameMode.SURVIVAL)) {
                 p.setGameMode(GameMode.CREATIVE);
-                p.sendMessage(MessageUtils.format("Your gamemode has been set to &a&lCREATIVE."));
+                p.sendMessage(Lang.formatGamemode(GameMode.CREATIVE));
             }
             if (gamemode.equals(GameMode.CREATIVE)) {
                 p.setGameMode(GameMode.SURVIVAL);
-                p.sendMessage(MessageUtils.format("Your gamemode has been set to &c&lSURVIVAL."));
+                p.sendMessage(Lang.formatGamemode(GameMode.SURVIVAL));
             }
             if (gamemode.equals(GameMode.ADVENTURE)) {
                 p.setGameMode(GameMode.SURVIVAL);
-                p.sendMessage(MessageUtils.format("Your gamemode has been set to &c&lSURVIVAL."));
+                p.sendMessage(Lang.formatGamemode(GameMode.SURVIVAL));
             }
             if (gamemode.equals(GameMode.SPECTATOR)) {
                 p.setGameMode(GameMode.CREATIVE);
-                p.sendMessage(MessageUtils.format("Your gamemode has been set to &a&lCREATIVE."));
+                p.sendMessage(Lang.formatGamemode(GameMode.SURVIVAL));
             }
 
             return true;
         }
 
         try {
-            gamemode = GameMode.valueOf(args[0]);
+            gamemode = GameMode.valueOf(args[0].toUpperCase());
         } catch (IllegalArgumentException e) {
-            p.sendMessage("Invalid gamemode.");
+            target = Bukkit.getPlayer(args[0]);
 
+            if (target == null) {
+                p.sendMessage(Lang.getDoesNotExistOrIsOffline());
+                return true;
+            }
+
+            // todo
         }
 
         return true;
