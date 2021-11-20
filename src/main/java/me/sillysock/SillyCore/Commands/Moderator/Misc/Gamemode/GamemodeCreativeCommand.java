@@ -1,6 +1,7 @@
 package me.sillysock.SillyCore.Commands.Moderator.Misc.Gamemode;
 
 import me.sillysock.SillyCore.API.Configuration.Lang;
+import me.sillysock.SillyCore.API.Configuration.Permissions;
 import me.sillysock.SillyCore.API.Util.MessageUtils;
 import me.sillysock.SillyCore.SillyCore;
 import org.bukkit.Bukkit;
@@ -23,7 +24,7 @@ public class GamemodeCreativeCommand implements CommandExecutor {
             return true;
         }
 
-        if (!p.hasPermission("sillycore.misc.gamemodeCREATIVE")) {
+        if (!p.hasPermission(Permissions.getGmc())) {
             p.sendMessage(Lang.getNoPermission());
             return true;
         }

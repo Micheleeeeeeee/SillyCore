@@ -38,6 +38,12 @@ public class Permissions {
     private static String fly;
     private static String teleport;
 
+    private static String gamemode;
+    private static String gms;
+    private static String gmc;
+    private static String gma;
+    private static String gmsp;
+
     private static String inventoryView;
 
 
@@ -68,6 +74,11 @@ public class Permissions {
         setSeeVanished(get("see_vanished"));
         setTeleport(get("teleport"));
         setInventoryView(get("invview"));
+        setGamemode(get("gamemode"));
+        setGma(get("gma"));
+        setGmc(get("gmc"));
+        setGmsp(get("gmsp"));
+        setGms(get("gms"));
     }
 
     public static void clear() {
@@ -258,5 +269,45 @@ public class Permissions {
 
     public static void setInventoryView(String inventoryView) {
         Permissions.inventoryView = inventoryView;
+    }
+
+    public static String getGamemode() {
+        return gamemode;
+    }
+
+    public static void setGamemode(String gamemode) {
+        Permissions.gamemode = gamemode;
+    }
+
+    public static String getGms() {
+        return gms;
+    }
+
+    public static void setGms(String gms) {
+        Permissions.gms = gms;
+    }
+
+    public static String getGmc() {
+        return gmc;
+    }
+
+    public static void setGmc(String gmc) {
+        Permissions.gmc = gmc;
+    }
+
+    public static String getGma() {
+        return gma;
+    }
+
+    public static void setGma(String gma) {
+        Permissions.gma = gma;
+    }
+
+    public static String getGmsp() {
+        return gmsp;
+    }
+
+    public static void setGmsp(String gmsp) {
+        Permissions.gmsp = gmsp;
     }
 }

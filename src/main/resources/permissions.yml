@@ -37,4 +37,10 @@ teleport: 'sillycore.misc.teleport'
 
 invview: 'sillycore.misc.invview'
 
+gamemode: 'sillycore.misc.gamemode'
+gms: 'sillycore.misc.gms' # Survival
+gmc: 'sillycore.misc.gmc' # Creative
+gma: 'sillycore.misc.gma' # Adventure
+gmsp: 'sillycore.misc.gmsp' # Spectator
+
 # INFO: 'sillycore.misc.fun' IS A HARDCODED PERMISSION.
