@@ -31,6 +31,7 @@ public class GamemodeAdventureCommand implements CommandExecutor {
         if (args.length == 0) {
             p.setGameMode(GameMode.ADVENTURE);
             p.sendMessage(MessageUtils.format("Your gamemode has been changed to &c&lADVENTURE."));
+            return true;
         }
 
         target = Bukkit.getPlayer(args[0]);

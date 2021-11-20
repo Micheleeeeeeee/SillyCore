@@ -30,7 +30,8 @@ public class GamemodeCreativeCommand implements CommandExecutor {
 
         if (args.length == 0) {
             p.setGameMode(GameMode.CREATIVE);
-            p.sendMessage(MessageUtils.format("Your gamemode has been changed to &c&lCREATIVE."));
+            p.sendMessage(MessageUtils.format("Your gamemode has been changed to &a&lCREATIVE."));
+            return true;
         }
 
         target = Bukkit.getPlayer(args[0]);

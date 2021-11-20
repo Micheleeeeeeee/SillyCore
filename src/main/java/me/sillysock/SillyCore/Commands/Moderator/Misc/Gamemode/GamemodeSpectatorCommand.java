@@ -31,6 +31,7 @@ public class GamemodeSpectatorCommand implements CommandExecutor {
         if (args.length == 0) {
             p.setGameMode(GameMode.SPECTATOR);
             p.sendMessage(MessageUtils.format("Your gamemode has been changed to &c&lSPECTATOR."));
+            return true;
         }
 
         target = Bukkit.getPlayer(args[0]);
