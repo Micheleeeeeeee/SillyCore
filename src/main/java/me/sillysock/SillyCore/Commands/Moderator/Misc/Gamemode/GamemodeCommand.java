@@ -64,7 +64,20 @@ public class GamemodeCommand implements CommandExecutor {
                 return true;
             }
 
-            // todo
+            if (args.length != 2) {
+                p.sendMessage("Invalid Args");
+                return true;
+            }
+
+            try {
+                gamemode = GameMode.valueOf(args[1].toUpperCase());
+            } catch (IllegalArgumentException ex) {
+                p.sendMessage("Invalid Gamemode");
+            }
+
+            target.setGameMode(gamemode);
+            target.sendMessage(Lang.formatGamemode(gamemode));
+            p.sendMessage(Lang.formatGamemodeOther(target.getDisplayName(), gamemode));
         }
 
         return true;
