@@ -45,6 +45,9 @@ teleported: '&aYou have teleported to {name}'
 teleported_to_self: '&aYou have teleported {name} to you.'
 tp_all: '&aYou have teleported &c&leveryone &ato you.'
 
+gamemode: 'Your gamemode has been changed to &a&l{gamemode}.'
+gamemode_other: "{name}'s gamemode has been changed to &a&l{gamemode}."
+
 # Join Messages (error)
 
 blacklisted: '&c&lYou have been blacklisted from {servername}'

@@ -30,7 +30,7 @@ public class GamemodeSpectatorCommand implements CommandExecutor {
 
         if (args.length == 0) {
             p.setGameMode(GameMode.SPECTATOR);
-            p.sendMessage(MessageUtils.format("Your gamemode has been changed to &c&lSPECTATOR."));
+            p.sendMessage(Lang.formatGamemode(GameMode.SPECTATOR));
             return true;
         }
 
@@ -41,8 +41,8 @@ public class GamemodeSpectatorCommand implements CommandExecutor {
         }
 
         target.setGameMode(GameMode.SPECTATOR);
-        target.sendMessage("Your gamemode has been changed to &c&lSPECTATOR.");
-        p.sendMessage(target.getName() + "'s gamemode has been changed to &c&lSPECTATOR.");
+        target.sendMessage(Lang.formatGamemode(GameMode.SPECTATOR));
+        p.sendMessage(Lang.formatGamemodeOther(target.getDisplayName(), GameMode.SPECTATOR));
 
         return false;
     }

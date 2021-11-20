@@ -2,6 +2,7 @@ package me.sillysock.SillyCore.API.Configuration;
 
 import me.sillysock.SillyCore.API.Util.MessageUtils;
 import me.sillysock.SillyCore.SillyCore;
+import org.bukkit.GameMode;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -39,6 +40,9 @@ public class Lang {
     private static String teleported;
     private static String teleportedToSelf;
     private static String teleportInvalidArg;
+
+    private static String gamemode;
+    private static String gamemodeOther;
 
     private static String broadcast;
     private static String broadcastNoArgs;
@@ -347,8 +351,35 @@ public class Lang {
         return invviewInvalidArgs;
     }
 
+    public static String getGamemode() {
+        return gamemode;
+    }
+
+    public static void setGamemode(String gamemode) {
+        Lang.gamemode = gamemode;
+    }
+
+    public static String getGamemodeOther() {
+        return gamemodeOther;
+    }
+
+    public static void setGamemodeOther(String gamemodeOther) {
+        Lang.gamemodeOther = gamemodeOther;
+    }
+
     public static void setInvviewInvalidArgs(String invviewInvalidArgs) {
         Lang.invviewInvalidArgs = invviewInvalidArgs;
+    }
+
+    public static String formatGamemode(final GameMode mode) {
+        return MessageUtils.format(getGamemode()
+                .replace("{gamemode}", mode.name()));
+    }
+
+    public static String formatGamemodeOther(final String name, final GameMode mode) {
+        return MessageUtils.format(getGamemodeOther()
+                .replace("{gamemode}", mode.name()))
+                .replace("{name}", name);
     }
 
     public static String formatBroadcast(final String message) {

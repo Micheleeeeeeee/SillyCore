@@ -30,7 +30,7 @@ public class GamemodeSurvivalCommand implements CommandExecutor {
 
         if (args.length == 0) {
             p.setGameMode(GameMode.SURVIVAL);
-            p.sendMessage(MessageUtils.format("Your gamemode has been changed to &c&lSURVIVAL."));
+            p.sendMessage(Lang.formatGamemode(GameMode.SURVIVAL));
         }
 
         target = Bukkit.getPlayer(args[0]);
@@ -40,8 +40,8 @@ public class GamemodeSurvivalCommand implements CommandExecutor {
         }
 
         target.setGameMode(GameMode.SURVIVAL);
-        target.sendMessage("Your gamemode has been changed to &c&lSURVIVAL.");
-        p.sendMessage(target.getName() + "'s gamemode has been changed to &c&lSURVIVAL.");
+        target.sendMessage(Lang.formatGamemode(GameMode.SURVIVAL));
+        p.sendMessage(Lang.formatGamemodeOther(target.getName(), GameMode.SURVIVAL));
 
         return false;
     }

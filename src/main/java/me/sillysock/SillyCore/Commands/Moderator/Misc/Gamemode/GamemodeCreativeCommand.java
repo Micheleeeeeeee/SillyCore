@@ -30,7 +30,7 @@ public class GamemodeCreativeCommand implements CommandExecutor {
 
         if (args.length == 0) {
             p.setGameMode(GameMode.CREATIVE);
-            p.sendMessage(MessageUtils.format("Your gamemode has been changed to &a&lCREATIVE."));
+            p.sendMessage(Lang.formatGamemode(GameMode.CREATIVE));
             return true;
         }
 
@@ -41,8 +41,8 @@ public class GamemodeCreativeCommand implements CommandExecutor {
         }
 
         target.setGameMode(GameMode.CREATIVE);
-        target.sendMessage("Your gamemode has been changed to &c&lCREATIVE.");
-        p.sendMessage(target.getName() + "'s gamemode has been changed to &c&lCREATIVE.");
+        target.sendMessage(Lang.formatGamemode(GameMode.CREATIVE));
+        p.sendMessage(Lang.formatGamemodeOther(target.getName(), GameMode.CREATIVE));
 
         return false;
     }

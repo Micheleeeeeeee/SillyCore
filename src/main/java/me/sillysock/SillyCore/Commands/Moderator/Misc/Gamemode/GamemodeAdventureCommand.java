@@ -30,7 +30,7 @@ public class GamemodeAdventureCommand implements CommandExecutor {
 
         if (args.length == 0) {
             p.setGameMode(GameMode.ADVENTURE);
-            p.sendMessage(MessageUtils.format("Your gamemode has been changed to &c&lADVENTURE."));
+            p.sendMessage(Lang.formatGamemode(GameMode.ADVENTURE));
             return true;
         }
 
@@ -41,8 +41,8 @@ public class GamemodeAdventureCommand implements CommandExecutor {
         }
 
         target.setGameMode(GameMode.ADVENTURE);
-        target.sendMessage("Your gamemode has been changed to &c&lADVENTURE.");
-        p.sendMessage(target.getName() + "'s gamemode has been changed to &c&lADVENTURE.");
+        target.sendMessage(Lang.formatGamemode(GameMode.ADVENTURE));
+        p.sendMessage(Lang.formatGamemodeOther(target.getName(), GameMode.ADVENTURE));
 
         return false;
     }
